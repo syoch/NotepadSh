@@ -16,4 +16,5 @@ def send(data:str):
 
 send("clear")
 send("make notepadsh")
+send("LD_LIBRARY_PATH=/usr/local/lib ./notepadsh")
 sock.close()
