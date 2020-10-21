@@ -15,5 +15,5 @@ def send(data:str):
         print("Unknown Reply Message",msg)
 
 send("clear")
-send("echo Execute")
+send("make notepadsh")
 sock.close()
