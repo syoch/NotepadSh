@@ -18,12 +18,10 @@ CXXFLAGS?=
 CPPFLAGS?=
 
 ## Get Files
-SRCS = $(wildcard $(SRCDIR)/*.cpp)
+SRCS = $(foreach dir,$(SRCDIR), $(wildcard $(dir)/*.cpp))
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(OBJS:.o=.d)
 
-### Variables
-CPPDEPS = -MD -MP -MT$@
 # wxwidgets
 
 WX_VERSION ?= $(shell $(WX_CONFIG) --query-version)
@@ -49,8 +47,10 @@ WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base --toolkit=$(WX_T
 notepadsh_OBJECTS =  main.o
 
 ### Targets
+.PHONY: all
+all:notepadsh
+
 notepadsh: $(OBJS)
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@echo compile executable
 	@echo using $(OBJS)
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
@@ -58,3 +58,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 %.o: %.cpp
 	@echo compile object $^
 	@$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $^
+
+# Source Dependencies
+-include $(DEPS)
