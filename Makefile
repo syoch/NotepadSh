@@ -50,13 +50,13 @@ notepadsh_OBJECTS =  main.o
 .PHONY: all info
 all: info notepadsh
 info:
-	@echo --------------------
-	@echo Detected source files: $(SRCS)
-	@echo --------------------
+	@echo "--------------------"
+	@echo "Detected source files: $(SRCS)"
+	@echo "         object files: $(OBJS)"
+	@echo "         depend files: $(DEPS)"
+	@echo "--------------------"
 
 notepadsh: $(OBJS)
-	@echo compile executable
-	@echo using $(OBJS)
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
 
 %.o: %.cpp
