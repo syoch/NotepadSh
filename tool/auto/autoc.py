@@ -15,6 +15,7 @@ def send(data:str):
         print("Unknown Reply Message",msg)
 
 send("clear")
-send("make notepadsh")
+send("rm notepadsh")
+send("make")
 send("LD_LIBRARY_PATH=/usr/local/lib ./notepadsh")
 sock.close()
