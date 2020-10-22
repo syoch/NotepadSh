@@ -1,7 +1,9 @@
-#include <stdio.h>
+#include <wx/wxprec.h>
+#ifndef WX_PRECOMP
+#include <wx/wx.h>
+#endif
+#include "app/frame.h"
 
-int main(int argc, char const *argv[])
-{
-    /* code */
-    return 0;
-}
+
+#define loader_frame MyFrame
+#include "appload.h"
