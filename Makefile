@@ -7,7 +7,6 @@ CC  ?= `$(WX_CONFIG) --cc`
 ## Directorys
 SRCDIR  = ./src/
 OBJDIR  = ./obj
-
 ## Files
 TARGET=notepadsh
 
@@ -19,8 +18,8 @@ CPPFLAGS?=
 
 ## Get Files
 SRCS = $(foreach dir,$(SRCDIR) $(filter ./%/,$(wildcard ./src/*/)),$(wildcard $(dir)*.cpp))
-OBJS = $(subst ./src,./obj,$(SRCS:.cpp=.o))
-DEPS = $(OBJS:.o=.d)
+OBJS = $(addprefix ./obj/,$(subst /,_,$(SRCS:./src/%.cpp=%.o)))
+DEPS = $(addprefix ./dep/,$(subst /,_,$(SRCS:./src/%.cpp=%.d)))
 
 # wxwidgets
 
@@ -56,12 +55,12 @@ info:
 	@echo "         depend files: $(DEPS)"
 	@echo "--------------------"
 
-notepadsh: $(OBJS)
+notepadsh: $(subst _,/,$(OBJS))
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
 
 $(OBJDIR)/%.o: $(SRCDIR)%.cpp
-	@echo compile object $@
-	@$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $^
+	@echo compile object $(subst obj_,obj/,$(subst /,_,$@))
+	@$(CXX) -c -o $(subst obj_,obj/,$(subst /,_,$@)) -Wall -Wextra -MMD -MP -MF $(subst :,/,$(subst /,_,$(@:obj/%.o=dep:%.d))) $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $^
 
 # Source Dependencies
 -include $(DEPS)
