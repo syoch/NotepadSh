@@ -47,16 +47,14 @@ endif
 
 WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base --toolkit=$(WX_TOOLKIT) --version=$(WX_VERSION) $(WX_CONFIG_UNICODE_FLAG) $(WX_CONFIG_SHARED_FLAG))
 notepadsh_OBJECTS =  main.o
-.PHONY: all
-all:notepadsh
-
 
 ### Targets
 notepadsh: $(OBJS)
-	$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
-
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $<
+	@echo compile executable
+	@echo using $(OBJS)
+	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
 
-# Source Dependencies
--include $(DEPS)
+%.o: %.cpp
+	@echo compile object $^
+	@$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $^
