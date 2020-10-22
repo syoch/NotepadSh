@@ -5,7 +5,7 @@ CXX ?= `$(WX_CONFIG) --cxx`
 CC  ?= `$(WX_CONFIG) --cc`
 
 ## Directorys
-SRCDIR  = ./src $(filter ./%/,$(wildcard ./src/*/))
+SRCDIR  = ./src/ $(filter ./%/,$(wildcard ./src/*/))
 OBJDIR  = ./obj
 
 ## Files
@@ -18,7 +18,7 @@ CXXFLAGS?=
 CPPFLAGS?=
 
 ## Get Files
-SRCS = $(foreach dir,$(SRCDIR), $(wildcard $(dir)/*.cpp))
+SRCS = $(foreach dir,$(SRCDIR), $(wildcard $(dir)*.cpp))
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(OBJS:.o=.d)
 
@@ -47,8 +47,12 @@ WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base --toolkit=$(WX_T
 notepadsh_OBJECTS =  main.o
 
 ### Targets
-.PHONY: all
-all:notepadsh
+.PHONY: all info
+all: info notepadsh
+info:
+	@echo --------------------
+	@echo Detected source files: $(SRCS)
+	@echo --------------------
 
 notepadsh: $(OBJS)
 	@echo compile executable
