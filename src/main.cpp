@@ -2,8 +2,19 @@
 #ifndef WX_PRECOMP
 #include <wx/wx.h>
 #endif
+
 #include "app/frame.h"
 
-
-#define loader_frame MyFrame
-#include "appload.h"
+class MyApp : public wxApp
+{
+public:
+    virtual bool OnInit()
+    {
+        {
+            MyFrame *frame = new MyFrame();
+            frame->Show(true);
+            return true;
+        }
+    }
+};
+wxIMPLEMENT_APP(MyApp);
