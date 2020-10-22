@@ -57,7 +57,8 @@ info:
 	@echo "--------------------"
 
 clean:
-	rm dep/* obj/*
+	$(RM) dep/* obj/*
+	$(RM) notepadsh
 
 $(TARGET): $(subst _,/,$(OBJS))
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS) $(LDFLAGS)
