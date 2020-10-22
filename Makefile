@@ -18,7 +18,7 @@ CXXFLAGS?=
 CPPFLAGS?=
 
 ## Get Files
-SRCS = $(wildcard $(SRCDIR)/*.cpp)
+SRCS = $(foreach dir,$(SRCDIR), $(wildcard $(dir)/*.cpp))
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(OBJS:.o=.d)
 
