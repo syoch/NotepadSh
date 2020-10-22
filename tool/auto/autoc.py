@@ -14,6 +14,7 @@ def send(data:str):
     if msg != b"done":
         print("Unknown Reply Message",msg)
 
+import time;time.sleep(0.1)
 send("clear")
 send("rm notepadsh")
 send("make")
