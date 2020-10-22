@@ -46,17 +46,14 @@ WX_CONFIG_UNICODE_FLAG = --unicode=yes
 endif
 
 WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base --toolkit=$(WX_TOOLKIT) --version=$(WX_VERSION) $(WX_CONFIG_UNICODE_FLAG) $(WX_CONFIG_SHARED_FLAG))
-
 notepadsh_OBJECTS =  main.o
 
 ### Targets
 notepadsh: $(OBJS)
-	@echo linking
-	$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
+	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@echo compiling
-	$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $<
+	@$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $<
 
 # Source Dependencies
 -include $(DEPS)
