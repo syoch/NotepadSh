@@ -5,9 +5,10 @@ CXX ?= `$(WX_CONFIG) --cxx`
 CC  ?= `$(WX_CONFIG) --cc`
 
 ## Directorys
-SRCDIR  = ./src/
-OBJDIR  = ./obj
-DEPDIR  = ./dep
+SRCDIR := src
+OBJDIR := obj
+DEPDIR := dep
+
 ## Files
 TARGET=notepadsh
 
