@@ -5,7 +5,7 @@ CXX ?= `$(WX_CONFIG) --cxx`
 CC  ?= `$(WX_CONFIG) --cc`
 
 ## Directorys
-SRCDIR  = ./src/ $(filter ./%/,$(wildcard ./src/*/))
+SRCDIR  = ./src/
 OBJDIR  = ./obj
 
 ## Files
@@ -18,7 +18,7 @@ CXXFLAGS?=
 CPPFLAGS?=
 
 ## Get Files
-SRCS = $(foreach dir,$(SRCDIR),$(wildcard $(dir)*.cpp))
+SRCS = $(foreach dir,$(SRCDIR) $(filter ./%/,$(wildcard ./src/*/)),$(wildcard $(dir)*.cpp))
 OBJS = $(subst ./src,./obj,$(SRCS:.cpp=.o))
 DEPS = $(OBJS:.o=.d)
 
@@ -59,8 +59,8 @@ info:
 notepadsh: $(OBJS)
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
 
-%.o: %.cpp
-	@echo compile object $^
+$(OBJDIR)/%.o: $(SRCDIR)%.cpp
+	@echo compile object $@
 	@$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $^
 
 # Source Dependencies
