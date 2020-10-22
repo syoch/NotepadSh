@@ -22,8 +22,6 @@ SRCS = $(foreach dir,$(SRCDIR), $(wildcard $(dir)/*.cpp))
 OBJS = $(addprefix $(OBJDIR)/, $(notdir $(SRCS:.cpp=.o)))
 DEPS = $(OBJS:.o=.d)
 
-### Variables
-CPPDEPS = -MD -MP -MT$@
 # wxwidgets
 
 WX_VERSION ?= $(shell $(WX_CONFIG) --query-version)
