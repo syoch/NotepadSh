@@ -5,7 +5,7 @@ CXX ?= `$(WX_CONFIG) --cxx`
 CC  ?= `$(WX_CONFIG) --cc`
 
 ## Directorys
-SRCDIR  = ./src
+SRCDIR  = ./src $(filter ./%/,$(wildcard ./src/*/))
 OBJDIR  = ./obj
 
 ## Files
@@ -50,10 +50,10 @@ notepadsh_OBJECTS =  main.o
 
 ### Targets
 notepadsh: $(OBJS)
-	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
+	$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $<
+	$(CXX) -c -o $@ -Wall -Wextra -MMD -MP $(notepadsh_CXXFLAGS) $(WX_CPPFLAGS) $(CXXFLAGS) $(CPPDEPS) $<
 
 # Source Dependencies
 -include $(DEPS)
