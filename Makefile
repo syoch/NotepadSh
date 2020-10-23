@@ -55,7 +55,6 @@ all: $(TARGET)
 clean:
 	$(RM) dep/* obj/*
 	$(RM) notepadsh
-	$(RM) inc/pch.h.gch
 
 info:
 	@echo "--------------------"
@@ -65,16 +64,14 @@ info:
 	@echo "| depend  : $(DEPDIR) : $(DEPS)"
 	@echo "--------------------"
 
-clean:
-	$(RM) dep/* obj/*
-	$(RM) notepadsh
-
+# Program Rule
 $(TARGET): $(OBJS)
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS) $(LDFLAGS)
 
+# .cpp -> .o
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@echo compile $< to '$@'
-	@$(CXX) -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $<
+	@$(CXX) -std=gnu++11 -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $<
 
 # Source Dependencies
 -include $(DEPS)
