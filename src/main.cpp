@@ -3,7 +3,7 @@
 #include <wx/wx.h>
 #endif
 
-#include "app/frame.h"
+#include "frame.h"
 
 class MyApp : public wxApp
 {
