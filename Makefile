@@ -67,8 +67,8 @@ $(TARGET): $(OBJS)
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS) $(LDFLAGS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@echo compile '$^' to '$@'
-	$(CXX) -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $^
+	@echo compile $< to '$@'
+	$(CXX) -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $<
 
 # Source Dependencies
 -include $(DEPS)
