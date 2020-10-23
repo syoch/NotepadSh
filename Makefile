@@ -50,8 +50,14 @@ WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base $(WX_CONFIG_FLAG
 ### Targets
 .PHONY: all info clean
 all: $(TARGET)
+
+# PHONY Targets
+clean:
+	$(RM) dep/* obj/*
+	$(RM) notepadsh
+	$(RM) inc/pch.h.gch
+
 info:
-	@echo 
 	@echo "--------------------"
 	@echo "| source  : $(SRCDIR) : $(SRCS)"
 	@echo "| include : $(INCDIR) : -----"
