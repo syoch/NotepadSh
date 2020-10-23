@@ -49,7 +49,7 @@ WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base $(WX_CONFIG_FLAG
 
 ### Targets
 .PHONY: all info clean
-all: info $(TARGET)
+all: $(TARGET)
 info:
 	@echo 
 	@echo "--------------------"
