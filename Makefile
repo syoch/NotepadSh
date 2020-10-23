@@ -8,19 +8,20 @@ CC  ?= `$(WX_CONFIG) --cc`
 SRCDIR := src
 OBJDIR := obj
 DEPDIR := dep
+INCDIR := inc
 
 ## Files
 TARGET=notepadsh
 
 ## Arguments
-CXXDEP  ?= -MMD -MP -MF $(subst :,/,$(subst /,_,$(@:obj/%.o=dep:%.d)))
-LDFLAGS ?=
-CXXFLAGS?=
+CXXDEP   ?= -MMD -MP -MF $(subst :,/,$(subst /,_,$(@:obj/%.o=dep:%.d)))
+LDFLAGS  ?=
+CXXFLAGS ?=
 
 ## Get Files
-SRCS = $(foreach dir,$(SRCDIR) $(filter ./%/,$(wildcard ./src/*/)),$(wildcard $(dir)*.cpp))
-OBJS = $(addprefix $(OBJDIR)/,$(subst /,_,$(SRCS:./src/%.cpp=%.o)))
-DEPS = $(addprefix $(DEPDIR)/,$(subst /,_,$(SRCS:./src/%.cpp=%.d)))
+SRCS := $(wildcard $(SRCDIR)/*.cpp)
+OBJS := $(SRCS:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
+DEPS := $(SRCS:$(SRCDIR)/%.cpp=$(DEPDIR)/%.d)
 
 # wx-config arguments
 WX_CONFIG_FLAG ?= 
@@ -45,28 +46,29 @@ WX_CONFIG_FLAG := $(WX_CONFIG_FLAG) $(shell $(WX_CONFIG) --query-version)
 WX_CONFIG_FLAG := $(WX_CONFIG_FLAG) $(shell $(WX_CONFIG) --query-toolkit)
 
 WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base $(WX_CONFIG_FLAG))
-notepadsh_OBJECTS =  main.o
 
 ### Targets
 .PHONY: all info clean
 all: info $(TARGET)
 info:
+	@echo 
 	@echo "--------------------"
-	@echo "Detected source files: $(SRCS)"
-	@echo "         object files: $(OBJS)"
-	@echo "         depend files: $(DEPS)"
+	@echo "| source  : $(SRCDIR) : $(SRCS)"
+	@echo "| include : $(INCDIR) : -----"
+	@echo "| object  : $(OBJDIR) : $(OBJS)"
+	@echo "| depend  : $(DEPDIR) : $(DEPS)"
 	@echo "--------------------"
 
 clean:
 	$(RM) dep/* obj/*
 	$(RM) notepadsh
 
-$(TARGET): $(subst _,/,$(OBJS))
+$(TARGET): $(OBJS)
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS) $(LDFLAGS)
 
-$(OBJDIR)/%.o: $(SRCDIR)%.cpp
-	@echo compile object $(subst obj_,obj/,$(subst /,_,$@))
-	@$(CXX) -c -o $(subst obj_,obj/,$(subst /,_,$@)) -Wall -Wextra $(CXXDEP) $(WX_CPPFLAGS) $(CXXFLAGS) $^
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
+	@echo compile '$^' to '$@'
+	$(CXX) -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $^
 
 # Source Dependencies
 -include $(DEPS)
