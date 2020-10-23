@@ -48,13 +48,14 @@ WX_CONFIG_FLAG := $(WX_CONFIG_FLAG) $(shell $(WX_CONFIG) --query-toolkit)
 WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base $(WX_CONFIG_FLAG))
 
 ### Targets
-.PHONY: all info clean
+.PHONY: all info clean pch
 all: $(TARGET)
 
 # PHONY Targets
 clean:
 	$(RM) dep/* obj/*
 	$(RM) notepadsh
+	$(RM) inc/pch.h.gch
 
 info:
 	@echo "--------------------"
@@ -65,8 +66,13 @@ info:
 	@echo "--------------------"
 
 # Program Rule
-$(TARGET): $(OBJS)
+$(TARGET): $(OBJS) $(INCDIR)/pch.h.gch
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS) $(LDFLAGS)
+
+# Pch Rule
+$(INCDIR)/pch.h.gch: $(INCDIR)/pch.h
+	@echo compile pch
+	g++ -o $(INCDIR)/pch.h.gch -std=gnu++11 $(shell $(WX_CONFIG) --cxxflags $(WX_CONFIG_FLAG)) $(INCDIR)/pch.h
 
 # .cpp -> .o
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
