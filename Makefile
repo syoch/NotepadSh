@@ -72,7 +72,7 @@ $(TARGET): $(INCDIR)/pch.h.gch $(OBJS)
 # Pch Rule
 $(INCDIR)/pch.h.gch: $(INCDIR)/pch.h
 	@echo compile pch
-	g++ -o $(INCDIR)/pch.h.gch -std=gnu++11 $(shell $(WX_CONFIG) --cxxflags $(WX_CONFIG_FLAG)) $(INCDIR)/pch.h
+	@$(CXX) -o $(INCDIR)/pch.h.gch -std=gnu++11 $(shell $(WX_CONFIG) --cxxflags $(WX_CONFIG_FLAG)) $(INCDIR)/pch.h
 
 # .cpp -> .o
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
