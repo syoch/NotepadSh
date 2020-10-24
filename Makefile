@@ -76,8 +76,8 @@ $(INCDIR)/pch.h.gch: $(INCDIR)/pch.h
 	@$(CXX) -std=gnu++11 -o    $@ -Wall -Wextra  $(shell $(WX_CONFIG) --cxxflags $(WX_CONFIG_FLAG)) -I $(INCDIR) $(CXXFLAGS) $(INCDIR)/pch.h
 
 # .cpp -> .o
-$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
-	@echo compile $< to '$@'
+$(OBJDIR)/%.o: pch $(SRCDIR)/%.cpp
+	@echo "compile $< to '$@'"
 	@$(CXX) -std=gnu++11 -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $<
 
 # Source Dependencies
