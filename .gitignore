@@ -1,6 +1,6 @@
 *.o
 *.d
-*.exe
+notepadsh.exe
 *.gch
 notepadsh
 # IDE
