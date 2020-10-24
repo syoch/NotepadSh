@@ -67,7 +67,7 @@ info:
 	@echo "--------------------"
 
 # Program Rule
-$(TARGET): $(OBJS)
+$(TARGET): $(INCDIR)/pch.h.gch $(OBJS)
 	@echo "building $@"
 	$(CXX) -o $@ $(WX_CPPFLAGS) $(LDFLAGS) $(OBJS) $(WX_LIB)
 
@@ -78,8 +78,7 @@ $(INCDIR)/pch.h.gch: $(INCDIR)/pch.h
 
 # .cpp -> .o
 $(OBJDIR)/%.o: $(INCDIR)/pch.h.gch $(SRCDIR)/%.cpp
-	@echo "compile $< to '$@'"
-	@$(CXX) -std=gnu++11 -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $<
+	@echo "compile '$(SRCDIR)/$*.cpp' to '$@'"
 	@$(CXX) -std=gnu++11 -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $(SRCDIR)/$*.cpp
 
 # Source Dependencies
