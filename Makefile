@@ -66,7 +66,7 @@ info:
 	@echo "--------------------"
 
 # Program Rule
-$(TARGET): $(OBJS) $(INCDIR)/pch.h.gch
+$(TARGET): $(INCDIR)/pch.h.gch $(OBJS)
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS) $(LDFLAGS)
 
 # Pch Rule
