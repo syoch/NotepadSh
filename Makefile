@@ -45,7 +45,8 @@ endif
 WX_CONFIG_FLAG := $(WX_CONFIG_FLAG) $(shell $(WX_CONFIG) --query-version)
 WX_CONFIG_FLAG := $(WX_CONFIG_FLAG) $(shell $(WX_CONFIG) --query-toolkit)
 
-WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags --libs core,base $(WX_CONFIG_FLAG))
+WX_CPPFLAGS ?= $(shell $(WX_CONFIG) --cxxflags $(WX_CONFIG_FLAG))
+WX_LIB ?= $(shell $(WX_CONFIG) --libs core,base)
 
 ### Targets
 .PHONY: all info clean pch
@@ -66,19 +67,20 @@ info:
 	@echo "--------------------"
 
 # Program Rule
-$(TARGET): $(INCDIR)/pch.h.gch $(OBJS)
+$(TARGET): $(OBJS)
 	@echo "building $@"
-	@$(CXX) -o $@ $(WX_CPPFLAGS) $(LDFLAGS) $(OBJS)
+	$(CXX) -o $@ $(WX_CPPFLAGS) $(LDFLAGS) $(OBJS) $(WX_LIB)
 
 # Pch Rule
 $(INCDIR)/pch.h.gch: $(INCDIR)/pch.h
 	@echo "compile pch '$(INCDIR)/pch.h' to '$@'"
-	@$(CXX) -std=gnu++11 -o    $@ -Wall -Wextra  $(shell $(WX_CONFIG) --cxxflags $(WX_CONFIG_FLAG)) -I $(INCDIR) $(CXXFLAGS) $(INCDIR)/pch.h
+	@$(CXX) -std=gnu++11 -o    $@ -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $(INCDIR)/pch.h
 
 # .cpp -> .o
 $(OBJDIR)/%.o: $(INCDIR)/pch.h.gch $(SRCDIR)/%.cpp
 	@echo "compile $< to '$@'"
 	@$(CXX) -std=gnu++11 -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $<
+	@$(CXX) -std=gnu++11 -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $(SRCDIR)/$*.cpp
 
 # Source Dependencies
 -include $(DEPS)
