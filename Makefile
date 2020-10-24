@@ -67,6 +67,7 @@ info:
 
 # Program Rule
 $(TARGET): $(INCDIR)/pch.h.gch $(OBJS)
+	@echo building ...
 	@$(CXX) -o $@ $(OBJS) $(WX_CPPFLAGS) $(LDFLAGS)
 
 # Pch Rule
