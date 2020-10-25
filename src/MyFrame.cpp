@@ -33,7 +33,6 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size)
 }
 void MyFrame::OnExit(wxCommandEvent &event)
 {
-    event.GetId();
     Close(true);
 }
 void MyFrame::OnAbout(wxCommandEvent &event)
