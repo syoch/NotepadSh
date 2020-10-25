@@ -20,7 +20,7 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size)
     // - Help
     wxMenu *menuHelp = new wxMenu;
     menuHelp->Append(wxID_ABOUT);
-    // - Show
+    // - Bar
     wxMenuBar *menuBar = new wxMenuBar;
     menuBar->Append(menuFile, "&File");
     menuBar->Append(menuHelp, "&Help");
