@@ -4,11 +4,6 @@
 
 #include "pch.h"
 
-enum
-{
-    ID_Hello = 1
-};
-
 class MyFrame : public wxFrame
 {
 public:
