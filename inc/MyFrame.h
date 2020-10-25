@@ -10,7 +10,7 @@ public:
     MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size);
 
 private:
-    void OnHello(wxCommandEvent &event);
+    void OnOpenFile(wxCommandEvent &event);
     void OnExit(wxCommandEvent &event);
     void OnAbout(wxCommandEvent &event);
 

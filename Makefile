@@ -67,17 +67,12 @@ info:
 	@echo "--------------------"
 
 # Program Rule
-$(TARGET): $(INCDIR)/pch.h.gch $(OBJS)
+$(TARGET): $(OBJS)
 	@echo "building $@"
 	@$(CXX) -o $@ $(WX_CPPFLAGS) $(LDFLAGS) $(OBJS) $(WX_LIB)
 
-# Pch Rule
-$(INCDIR)/pch.h.gch: $(INCDIR)/pch.h
-	@echo "compile pch '$(INCDIR)/pch.h' to '$@'"
-	@$(CXX) -std=gnu++11 -o    $@ -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $(INCDIR)/pch.h
-
 # .cpp -> .o
-$(OBJDIR)/%.o: $(INCDIR)/pch.h.gch $(SRCDIR)/%.cpp
+$(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@echo "compile '$(SRCDIR)/$*.cpp' to '$@'"
 	@$(CXX) -std=gnu++11 -c -o $@ $(CXXDEP) -Wall -Wextra  $(WX_CPPFLAGS) -I $(INCDIR) $(CXXFLAGS) $(SRCDIR)/$*.cpp
 
