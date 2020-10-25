@@ -3,6 +3,7 @@
 #define MY_FRAME_H
 
 #include "pch.h"
+#include <fstream>
 
 class MyFrame : public wxFrame
 {
