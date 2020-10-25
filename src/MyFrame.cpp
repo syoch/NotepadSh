@@ -37,9 +37,8 @@ void MyFrame::OnExit(wxCommandEvent &event)
 }
 void MyFrame::OnAbout(wxCommandEvent &event)
 {
-    event.GetId();
-    wxMessageBox("This is a wxWidgets' Hello world sample",
-                 "About Hello World", wxOK | wxICON_INFORMATION);
+    wxMessageBox("This is a Notepad like a microsoft notepad.",
+                 "About Notepad#", wxOK | wxICON_INFORMATION);
 }
 void MyFrame::OnOpenFile(wxCommandEvent &event) // TODO :OnOpenFIle implemented
 {
