@@ -2,7 +2,7 @@
 #include "widgetids.h"
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
-    EVT_MENU(ID_OpenFile, MyFrame::OnHello)
+    EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
     EVT_MENU(wxID_EXIT, MyFrame::OnExit)
     EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
 wxEND_EVENT_TABLE()
@@ -44,6 +44,6 @@ void MyFrame::OnAbout(wxCommandEvent &event)
 }
 void MyFrame::OnHello(wxCommandEvent &event)
 {
-    event.GetId();
-    wxLogMessage("Hello world from wxWidgets!");
+    //wxString file=wxFileSelector("file to open.");
+    
 }
