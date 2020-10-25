@@ -12,8 +12,8 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size)
     // MenuBar
     // - File
     wxMenu *menuFile = new wxMenu;
-    menuFile->Append(ID_Hello, "&Hello...\tCtrl-H",
-                     "Help string shown in status bar for this menu item");
+    menuFile->Append(ID_OpenFile, "&Open File\tCtrl-O",
+                     "Open a file.");
     menuFile->AppendSeparator();
     menuFile->Append(wxID_EXIT);
     // - Help
