@@ -41,7 +41,7 @@ void MyFrame::OnAbout(wxCommandEvent &event)
     wxMessageBox("This is a wxWidgets' Hello world sample",
                  "About Hello World", wxOK | wxICON_INFORMATION);
 }
-void MyFrame::OnHello(wxCommandEvent &event)
+void MyFrame::OnOpenFile(wxCommandEvent &event) // TODO :OnOpenFIle implemented
 {
     //wxString file=wxFileSelector("file to open.");
     
