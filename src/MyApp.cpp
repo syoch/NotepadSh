@@ -2,7 +2,7 @@
 
 bool MyApp::OnInit()
 {
-    MyFrame *frame = new MyFrame("Notepad#", wxPoint(50, 50), wxSize(450, 340));
+    MyFrame *frame = new MyFrame("Notepad#", wxDefaultPosition, wxSize(400, 400));
     frame->Show(true);
     return true;
 }
