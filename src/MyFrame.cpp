@@ -33,7 +33,9 @@ MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size)
     // - Create
     CreateStatusBar();
     // - Show
-    SetStatusText("Welcome to wxWidgets!");
+    // sizer
+    wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+    SetSizerAndFit(sizer);
 }
 void MyFrame::OnExit(wxCommandEvent &event)
 {
