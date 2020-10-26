@@ -46,16 +46,16 @@ MyFrame::MyFrame()
     panel->SetSizer(sizer);
     Layout();
 }
-void MyFrame::OnExit(wxCommandEvent &event)
+void MyFrame::OnExit(wxCommandEvent &)
 {
     Close(true);
 }
-void MyFrame::OnAbout(wxCommandEvent &event)
+void MyFrame::OnAbout(wxCommandEvent &)
 {
     wxMessageBox("This is a Notepad like a microsoft notepad.",
                  "About Notepad#", wxOK | wxICON_INFORMATION);
 }
-void MyFrame::OnOpenFile(wxCommandEvent &event) // TODO :OnOpenFIle implemented
+void MyFrame::OnOpenFile(wxCommandEvent &) // TODO :OnOpenFIle implemented
 {
     //wxString name=wxFileSelector("file to open.");
     
