@@ -1,4 +1,7 @@
+#include "pch.h"
 #include "MyApp.h"
+
+#include "MyFrame.h"
 
 bool MyApp::OnInit()
 {

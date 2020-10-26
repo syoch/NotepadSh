@@ -1,5 +1,9 @@
+#include "pch.h"
 #include "MyFrame.h"
+
 #include "widgetids.h"
+#include <fstream>
+
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
