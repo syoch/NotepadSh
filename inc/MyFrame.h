@@ -8,11 +8,14 @@ public:
     MyFrame();
 
 private:
+    // Widgets
+    wxTextCtrl* texteditor;
+    // Handlers
     void OnOpenFile(wxCommandEvent &event);
     void OnExit(wxCommandEvent &event);
     void OnAbout(wxCommandEvent &event);
 
-
+    // EventTable
     wxDECLARE_EVENT_TABLE();
 };
 
