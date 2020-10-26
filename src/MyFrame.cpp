@@ -37,6 +37,11 @@ MyFrame::MyFrame()
     wxPanel *panel=new  wxPanel(this,wxID_ANY);
     // - sizer
     wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+    // - - add childs
+    // - - - text editor
+    wxTextCtrl *textctrl = new wxTextCtrl(panel,wxID_ANY,wxEmptyString,wxDefaultPosition,wxDefaultSize,wxTE_PROCESS_ENTER|wxTE_PROCESS_TAB|wxTE_MULTILINE);
+    textctrl->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
+    sizer->Add(textctrl,1,wxALL|wxEXPAND,1);
     // - Set sizer
     panel->SetSizer(sizer);
     Layout();
