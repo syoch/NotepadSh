@@ -33,9 +33,13 @@ MyFrame::MyFrame()
     // - Create
     CreateStatusBar();
     // - Show
-    // sizer
+    // panel
+    wxPanel *panel=new  wxPanel(this,wxID_ANY);
+    // - sizer
     wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
-    SetSizerAndFit(sizer);
+    // - Set sizer
+    panel->SetSizer(sizer);
+    Layout();
 }
 void MyFrame::OnExit(wxCommandEvent &event)
 {
