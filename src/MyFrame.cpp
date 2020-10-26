@@ -11,8 +11,8 @@ wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
 wxEND_EVENT_TABLE()
 
-MyFrame::MyFrame(const wxString &title, const wxPoint &pos, const wxSize &size)
-       : wxFrame(NULL, wxID_ANY, title, pos, size)
+MyFrame::MyFrame()
+       : wxFrame(NULL, wxID_ANY,wxT("NotepadSH"), wxDefaultPosition, wxSize(400,400))
 {
     // MenuBar
     // - File
