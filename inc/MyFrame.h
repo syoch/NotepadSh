@@ -9,7 +9,13 @@ public:
 
 private:
     // Widgets
-    wxTextCtrl* texteditor;
+    wxTextCtrl *texteditor;
+    struct
+    {
+        wxMenu *file;
+        wxMenu *help;
+        wxMenuBar *bar;
+    } menus;
     // Handlers
     void OnOpenFile(wxCommandEvent &event);
     void OnExit(wxCommandEvent &event);

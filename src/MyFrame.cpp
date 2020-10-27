@@ -16,19 +16,19 @@ MyFrame::MyFrame()
 {
     // MenuBar
     // - File
-    wxMenu *menuFile = new wxMenu;
-    menuFile->Append(ID_OpenFile, "&Open File\tCtrl-O",
+    menus.file = new wxMenu;
+    menus.file->Append(ID_OpenFile, "&Open File\tCtrl-O",
                      "Open a file.");
-    menuFile->AppendSeparator();
-    menuFile->Append(wxID_EXIT);
+    menus.file->AppendSeparator();
+    menus.file->Append(wxID_EXIT);
     // - Help
-    wxMenu *menuHelp = new wxMenu;
-    menuHelp->Append(wxID_ABOUT);
+    menus.help = new wxMenu;
+    menus.help->Append(wxID_ABOUT);
     // - Bar
-    wxMenuBar *menuBar = new wxMenuBar;
-    menuBar->Append(menuFile, "&File");
-    menuBar->Append(menuHelp, "&Help");
-    SetMenuBar(menuBar);
+    menus.bar = new wxMenuBar;
+    menus.bar->Append(menus.file, "&File");
+    menus.bar->Append(menus.help, "&Help");
+    SetMenuBar(menus.bar);
     // StatusBar
     wxStatusBar *statusBar= new wxStatusBar(this);
     SetStatusBar(statusBar);
