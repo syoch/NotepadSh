@@ -61,6 +61,10 @@ void MyFrame::OnOpenFile(wxCommandEvent &) // TODO :OnOpenFIle implemented
     std::cout<<"DEBUG:"<<name<<std::endl;
     std::ifstream file(name);
     
+    if (file.fail()){
+        panel.statusBar->SetStatusText("Failed");
+        return;
+    }
     // Clear editor
     texteditor->Clear();
 
