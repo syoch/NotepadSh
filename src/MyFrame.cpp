@@ -56,12 +56,8 @@ void MyFrame::OnAbout(wxCommandEvent &)
 }
 void MyFrame::OnOpenFile(wxCommandEvent &) // TODO :OnOpenFIle implemented
 {
-    //wxString name=wxFileSelector("file to open.");
+    wxString name=wxFileSelector("file to open.");
     
-    // Debug code
-    wxString name=wxString::FromAscii("./MakeFile");
-    // end of debug code
-
     std::cout<<"DEBUG:"<<name<<std::endl;
     std::ifstream file(name);
     
