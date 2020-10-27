@@ -30,7 +30,7 @@ MyFrame::MyFrame()
     menus.bar->Append(menus.help, "&Help");
     SetMenuBar(menus.bar);
     // StatusBar
-    wxStatusBar *statusBar= new wxStatusBar(this);
+    statusBar = new wxStatusBar(this);
     SetStatusBar(statusBar);
     // panel
     wxPanel *panel=new  wxPanel(this,wxID_ANY);

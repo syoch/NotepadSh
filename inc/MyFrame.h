@@ -16,6 +16,7 @@ private:
         wxMenu *help;
         wxMenuBar *bar;
     } menus;
+    wxStatusBar *statusBar;
     // Handlers
     void OnOpenFile(wxCommandEvent &event);
     void OnExit(wxCommandEvent &event);
