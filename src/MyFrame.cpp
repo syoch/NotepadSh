@@ -16,22 +16,22 @@ MyFrame::MyFrame()
 {
     // MenuBar
     // - File
-    menus.file = new wxMenu;
-    menus.file->Append(ID_OpenFile, "&Open File\tCtrl-O",
+    panel.file = new wxMenu;
+    panel.file->Append(ID_OpenFile, "&Open File\tCtrl-O",
                      "Open a file.");
-    menus.file->AppendSeparator();
-    menus.file->Append(wxID_EXIT);
+    panel.file->AppendSeparator();
+    panel.file->Append(wxID_EXIT);
     // - Help
-    menus.help = new wxMenu;
-    menus.help->Append(wxID_ABOUT);
+    panel.help = new wxMenu;
+    panel.help->Append(wxID_ABOUT);
     // - Bar
-    menus.bar = new wxMenuBar;
-    menus.bar->Append(menus.file, "&File");
-    menus.bar->Append(menus.help, "&Help");
-    SetMenuBar(menus.bar);
+    panel.bar = new wxMenuBar;
+    panel.bar->Append(panel.file, "&File");
+    panel.bar->Append(panel.help, "&Help");
+    SetMenuBar(panel.bar);
     // StatusBar
-    statusBar = new wxStatusBar(this);
-    SetStatusBar(statusBar);
+    panel.statusBar = new wxStatusBar(this);
+    SetStatusBar(panel.statusBar);
     // panel
     panel.panel=new  wxPanel(this,wxID_ANY);
     // - sizer

@@ -12,14 +12,12 @@ private:
     wxTextCtrl *texteditor;
     struct
     {
+        wxPanel *panel;
+        wxBoxSizer *sizer;
         wxMenu *file;
         wxMenu *help;
         wxMenuBar *bar;
-    } menus;
-    wxStatusBar *statusBar;
-    struct{
-        wxPanel *panel;
-        wxBoxSizer *sizer;
+        wxStatusBar *statusBar;
     } panel;
     // Handlers
     void OnOpenFile(wxCommandEvent &event);
