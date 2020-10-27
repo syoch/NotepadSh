@@ -17,6 +17,10 @@ private:
         wxMenuBar *bar;
     } menus;
     wxStatusBar *statusBar;
+    struct{
+        wxPanel *panel;
+        wxBoxSizer *sizer;
+    } panel;
     // Handlers
     void OnOpenFile(wxCommandEvent &event);
     void OnExit(wxCommandEvent &event);

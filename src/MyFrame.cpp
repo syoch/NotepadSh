@@ -33,16 +33,16 @@ MyFrame::MyFrame()
     statusBar = new wxStatusBar(this);
     SetStatusBar(statusBar);
     // panel
-    wxPanel *panel=new  wxPanel(this,wxID_ANY);
+    panel.panel=new  wxPanel(this,wxID_ANY);
     // - sizer
-    wxBoxSizer *sizer = new wxBoxSizer(wxVERTICAL);
+    panel.sizer = new wxBoxSizer(wxVERTICAL);
     // - - add childs
     // - - - text editor
-    texteditor = new wxTextCtrl(panel,wxID_ANY,wxEmptyString,wxDefaultPosition,wxDefaultSize,wxTE_PROCESS_ENTER|wxTE_PROCESS_TAB|wxTE_MULTILINE);
+    texteditor = new wxTextCtrl(panel.panel,wxID_ANY,wxEmptyString,wxDefaultPosition,wxDefaultSize,wxTE_PROCESS_ENTER|wxTE_PROCESS_TAB|wxTE_MULTILINE);
     texteditor->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
-    sizer->Add(texteditor,1,wxALL|wxEXPAND,1);
+    panel.sizer->Add(texteditor,1,wxALL|wxEXPAND,1);
     // - Set sizer
-    panel->SetSizer(sizer);
+    panel.panel->SetSizer(panel.sizer);
     Layout();
 }
 void MyFrame::OnExit(wxCommandEvent &)
