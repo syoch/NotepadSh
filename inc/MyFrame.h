@@ -19,6 +19,8 @@ private:
         wxMenuBar *bar;
         wxStatusBar *statusBar;
     } panel;
+    // Datas
+    wxFile file;
     // Handlers
     void OnOpenFile(wxCommandEvent &event);
     void OnSaveFile(wxCommandEvent &event);

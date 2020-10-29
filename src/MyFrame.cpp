@@ -59,11 +59,13 @@ void MyFrame::OnAbout(wxCommandEvent &)
 }
 void MyFrame::OnOpenFile(wxCommandEvent &)
 {
+    if(file.IsOpened()){
+        file.Close();
+    }
     // Ask
     wxString name=wxLoadFileSelector("Filename","*");
     
     //Open
-    wxFile file;
     file.Open(name,wxFile::OpenMode::read);
     if (file.Error()){
         panel.statusBar->SetStatusText("Failed");
@@ -79,5 +81,4 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     texteditor->SetValue(buffer);
 }
 void MyFrame::OnSaveFile(wxCommandEvent &){ // TODO:Implement save
-
 }
