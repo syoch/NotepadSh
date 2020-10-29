@@ -26,6 +26,7 @@ private:
     // Handlers
     void OnOpenFile(wxCommandEvent &event);
     void OnSaveFile(wxCommandEvent &event);
+    void OnCloseFile(wxCommandEvent &event);
     void OnExit(wxCommandEvent &event);
     void OnAbout(wxCommandEvent &event);
 

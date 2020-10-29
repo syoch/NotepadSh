@@ -8,6 +8,7 @@
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
     EVT_MENU(ID_SaveFile, MyFrame::OnSaveFile)
+    EVT_MENU(ID_CloseFile, MyFrame::OnCloseFile)
     EVT_MENU(wxID_EXIT, MyFrame::OnExit)
     EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
 wxEND_EVENT_TABLE()
@@ -22,6 +23,8 @@ MyFrame::MyFrame()
                      "Open a file.");
     panel.file->Append(ID_SaveFile, "&Save File\tCtrl-O",
                      "Save a file.");
+    panel.file->Append(ID_CloseFile, "&Close File\tCtrl-O",
+                     "Close opened file.");
     panel.file->AppendSeparator();
     panel.file->Append(wxID_EXIT);
     // - Help
@@ -93,3 +96,5 @@ void MyFrame::OnSaveFile(wxCommandEvent &)
     panel.statusBar->SetStatusText("Saved");
 
 }
+void MyFrame::OnCloseFile(wxCommandEvent &)
+{}
