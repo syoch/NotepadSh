@@ -79,6 +79,10 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     wxString buffer;
     file.ReadAll(&buffer);
     texteditor->SetValue(buffer);
+    SetTitle(
+        "Notepad#"+
+        wxSplit(name,wxT('/')).Last()// basename
+    );
 }
 void MyFrame::OnSaveFile(wxCommandEvent &){ // TODO:Implement save
 }
