@@ -84,7 +84,8 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
         wxSplit(name,wxT('/')).Last()// basename
     );
 }
-void MyFrame::OnSaveFile(wxCommandEvent &){ // TODO:Implement save
+void MyFrame::OnSaveFile(wxCommandEvent &)
+{
     file.Write(texteditor->GetValue());
     file.Flush();
 
