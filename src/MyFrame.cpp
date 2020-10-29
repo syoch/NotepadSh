@@ -7,6 +7,7 @@
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
+    EVT_MENU(ID_SaveFile, MyFrame::OnSaveFile)
     EVT_MENU(wxID_EXIT, MyFrame::OnExit)
     EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
 wxEND_EVENT_TABLE()
@@ -54,7 +55,7 @@ void MyFrame::OnAbout(wxCommandEvent &)
     wxMessageBox("This is a Notepad like a microsoft notepad.",
                  "About Notepad#", wxOK | wxICON_INFORMATION);
 }
-void MyFrame::OnOpenFile(wxCommandEvent &) // TODO :OnOpenFIle implemented
+void MyFrame::OnOpenFile(wxCommandEvent &)
 {
     // Ask
     wxString name=wxLoadFileSelector("Filename","*");
@@ -74,4 +75,7 @@ void MyFrame::OnOpenFile(wxCommandEvent &) // TODO :OnOpenFIle implemented
     wxString buffer;
     file.ReadAll(&buffer);
     texteditor->SetValue(buffer);
+}
+void MyFrame::OnSaveFile(wxCommandEvent &){ // TODO:Implement save
+
 }

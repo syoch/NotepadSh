@@ -4,7 +4,8 @@
 
 enum WidgetIDs
 {
-    ID_OpenFile = 1
+    ID_OpenFile,
+    ID_SaveFile
 };
 
 #endif // !defined(WIDGET_IDS_H)
