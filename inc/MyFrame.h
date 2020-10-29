@@ -2,6 +2,8 @@
 #ifndef MY_FRAME_H
 #define MY_FRAME_H
 
+#include <wx/file.h>
+
 class MyFrame : public wxFrame
 {
 public:
