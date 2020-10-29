@@ -1,7 +1,8 @@
 #include "pch.h"
+#include "widgetids.h"
 #include "MyFrame.h"
 
-#include "widgetids.h"
+#include <wx/file.h>
 #include <fstream>
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
@@ -53,7 +54,6 @@ void MyFrame::OnAbout(wxCommandEvent &)
     wxMessageBox("This is a Notepad like a microsoft notepad.",
                  "About Notepad#", wxOK | wxICON_INFORMATION);
 }
-#include <wx/file.h>
 void MyFrame::OnOpenFile(wxCommandEvent &) // TODO :OnOpenFIle implemented
 {
     // Ask
