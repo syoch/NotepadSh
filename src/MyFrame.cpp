@@ -9,6 +9,7 @@ wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
     EVT_MENU(ID_SaveFile, MyFrame::OnSaveFile)
     EVT_MENU(ID_CloseFile, MyFrame::OnCloseFile)
+    EVT_TEXT(ID_TextEditor,MyFrame::EnterTextEditor)
     EVT_MENU(wxID_EXIT, MyFrame::OnExit)
     EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
 wxEND_EVENT_TABLE()
@@ -44,7 +45,7 @@ MyFrame::MyFrame()
     panel.sizer = new wxBoxSizer(wxVERTICAL);
     // - - add childs
     // - - - text editor
-    texteditor = new wxTextCtrl(panel.panel,wxID_ANY,wxEmptyString,wxDefaultPosition,wxDefaultSize,wxTE_PROCESS_ENTER|wxTE_PROCESS_TAB|wxTE_MULTILINE);
+    texteditor = new wxTextCtrl(panel.panel,ID_TextEditor,wxEmptyString,wxDefaultPosition,wxDefaultSize,wxTE_PROCESS_ENTER|wxTE_PROCESS_TAB|wxTE_MULTILINE);
     texteditor->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
     panel.sizer->Add(texteditor,1,wxALL|wxEXPAND,1);
     // - Set sizer
@@ -104,3 +105,5 @@ void MyFrame::OnCloseFile(wxCommandEvent &)
     // Update Status
     panel.statusBar->SetStatusText("Closed");
 }
+void MyFrame::EnterTextEditor(wxCommandEvent &event)
+{}
