@@ -97,4 +97,10 @@ void MyFrame::OnSaveFile(wxCommandEvent &)
 
 }
 void MyFrame::OnCloseFile(wxCommandEvent &)
-{}
+{
+    // TODO: Check Edited `texteditor`
+    file.Close();
+    
+    // Update Status
+    panel.statusBar->SetStatusText("Closed");
+}
