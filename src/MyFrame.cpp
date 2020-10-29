@@ -3,7 +3,6 @@
 
 #include "widgetids.h"
 #include <fstream>
-#include <string>
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
@@ -54,24 +53,25 @@ void MyFrame::OnAbout(wxCommandEvent &)
     wxMessageBox("This is a Notepad like a microsoft notepad.",
                  "About Notepad#", wxOK | wxICON_INFORMATION);
 }
+#include <wx/file.h>
 void MyFrame::OnOpenFile(wxCommandEvent &) // TODO :OnOpenFIle implemented
 {
-    wxString name=wxFileSelector("file to open.");
+    // Ask
+    wxString name=wxLoadFileSelector("Filename","*");
     
-    std::cout<<"DEBUG:"<<name<<std::endl;
-    std::ifstream file(name);
-    
-    if (file.fail()){
+    //Open
+    wxFile file;
+    file.Open(name,wxFile::OpenMode::read);
+    if (file.Error()){
         panel.statusBar->SetStatusText("Failed");
+        wxMessageBox("Failed to open file["+name+"]","Error");
         return;
     }
     // Clear editor
     texteditor->Clear();
 
-    //read
-    std::string buffer;
-    while(std::getline(file,buffer)){
-        texteditor->AppendText(buffer);
-        texteditor->AppendText("\n");
-    }
+    //　Read
+    wxString buffer;
+    file.ReadAll(&buffer);
+    texteditor->SetValue(buffer);
 }
