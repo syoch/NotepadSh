@@ -20,6 +20,8 @@ MyFrame::MyFrame()
     panel.file = new wxMenu;
     panel.file->Append(ID_OpenFile, "&Open File\tCtrl-O",
                      "Open a file.");
+    panel.file->Append(ID_SaveFile, "&Save File\tCtrl-O",
+                     "Save a file.");
     panel.file->AppendSeparator();
     panel.file->Append(wxID_EXIT);
     // - Help
