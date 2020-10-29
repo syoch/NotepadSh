@@ -85,4 +85,10 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     );
 }
 void MyFrame::OnSaveFile(wxCommandEvent &){ // TODO:Implement save
+    file.Write(texteditor->GetValue());
+    file.Flush();
+
+    // Update Status
+    panel.statusBar->SetStatusText("Saved");
+
 }
