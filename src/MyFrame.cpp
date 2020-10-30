@@ -130,7 +130,14 @@ void MyFrame::EnterTextEditor(wxCommandEvent &event)
 
         std::cout<<std::endl;
     }else if(last_len > currentString_len){
-        std::cout<<"delete"<<last_len-currentString_len<<":"<<std::endl;
+        const size_t size=last_len-currentString_len;
+        std::cout<<"delete"<<size<<":";
+        for (size_t i = 0; i < size; i++)
+        {
+            std::cout<<(char)last[last_len-size+i];
+        }
+        
+        std::cout<<std::endl;
     }else if(last_len==currentString_len){
         // Pressed copy or cut?
     }
