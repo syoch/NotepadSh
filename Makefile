@@ -1,8 +1,8 @@
 
 # Commands
 WX_CONFIG ?= wx-config
-CXX ?= `$(WX_CONFIG) --cxx`
-CC  ?= `$(WX_CONFIG) --cc`
+CXX := `$(WX_CONFIG) --cxx`
+CC  := `$(WX_CONFIG) --cc`
 
 ## Directorys
 SRCDIR := src
