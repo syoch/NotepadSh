@@ -24,12 +24,12 @@ private:
     // Datas
     wxFile file;
     // Handlers
-    void OnOpenFile(wxCommandEvent &event);
-    void OnSaveFile(wxCommandEvent &event);
-    void OnCloseFile(wxCommandEvent &event);
-    void EnterTextEditor(wxCommandEvent &event);
-    void OnExit(wxCommandEvent &event);
-    void OnAbout(wxCommandEvent &event);
+    void OnOpenFile(wxCommandEvent &);
+    void OnSaveFile(wxCommandEvent &);
+    void OnCloseFile(wxCommandEvent &);
+    void EnterTextEditor(wxCommandEvent &);
+    void OnExit(wxCommandEvent &);
+    void OnAbout(wxCommandEvent &);
 
     // EventTable
     wxDECLARE_EVENT_TABLE();

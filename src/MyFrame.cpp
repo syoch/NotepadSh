@@ -106,7 +106,7 @@ void MyFrame::OnCloseFile(wxCommandEvent &)
     // Update Status
     panel.statusBar->SetStatusText("Closed");
 }
-void MyFrame::EnterTextEditor(wxCommandEvent &event)
+void MyFrame::EnterTextEditor(wxCommandEvent &)
 {
     static wxString last;
 
