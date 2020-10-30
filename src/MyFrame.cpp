@@ -116,13 +116,18 @@ void MyFrame::EnterTextEditor(wxCommandEvent &event)
         currentString_len=currentString.length();
     
     if(last_len < currentString_len){
-        std::cout<<"add: ";
         size_t diff=currentString_len-last_len;
-        for (size_t i = diff; i > 0; i--)
+        // Search End - begin
+        size_t offset=0;
+        while(last[last_len-offset]==currentString[currentString_len-offset])offset++;
+        offset-=1;
+        // Search End - end
+        std::cout<<"add["<<diff<<","<<offset<<"]: ";
+        for (size_t i = diff+offset; i > offset; i--) // (diff ~ 0)+offset
         {
             std::cout<<(wxChar)currentString[currentString_len-i]<<" ";
         }
-        
+
         std::cout<<std::endl;
     }else if(last_len > currentString_len){
         std::cout<<"delete"<<last_len-currentString_len<<":"<<std::endl;
