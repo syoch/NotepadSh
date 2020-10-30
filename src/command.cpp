@@ -4,11 +4,13 @@
 wxString command::buffer::buffer;
 
 bool command::buffer::add(wxString str){
-    std::cout<<"add"<< str;
+    command::buffer::buffer+=str;
+    command::buffer::update();
     return true;
 }
-bool command::buffer::remove(wxString str){
-    std::cout<<"rem"<<str;
+bool command::buffer::remove(size_t start,wxString str){
+    command::buffer::buffer.Remove(start,str.length());
+    command::buffer::update();
     return true;
 }
 
