@@ -9,7 +9,8 @@ namespace command{
     {
         extern wxString buffer;
         bool add(wxString);
-        bool remove(wxString);
+        bool remove(size_t start,wxString);
+        void update();
     } // namespace buffer
     
 }

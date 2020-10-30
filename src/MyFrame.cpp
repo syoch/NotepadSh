@@ -139,7 +139,7 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
         {
             change+=last[last_len-size+i];
         }
-        command::buffer::remove(change);
+        command::buffer::remove(last_len-size,change);
         
         std::cout<<std::endl;
     }else if(last_len==currentString_len){
