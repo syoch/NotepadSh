@@ -61,17 +61,15 @@ void MyFrame::OnAbout(wxCommandEvent &)
 }
 void MyFrame::OnOpenFile(wxCommandEvent &)
 {
-    if(file.IsOpened()){
-        file.Close();
-    }
     // Ask
-    wxString name=wxLoadFileSelector("Filename","*");
+    path=wxLoadFileSelector("Filename","*");
     
     //Open
-    file.Open(name,wxFile::OpenMode::read);
+    wxFile file;
+    file.Open(path,wxFile::OpenMode::read);
     if (file.Error()){
         panel.statusBar->SetStatusText("Failed");
-        wxMessageBox("Failed to open file["+name+"]","Error");
+        wxMessageBox("Failed to open file["+path+"]","Error");
         return;
     }
     // Clear editor
@@ -81,17 +79,22 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     wxString buffer;
     file.ReadAll(&buffer);
     texteditor->SetValue(buffer);
+    file.Close();
+
+    // Update Title
     SetTitle(
         "Notepad#"+
-        wxSplit(name,wxT('/')).Last()// basename
+        wxSplit(path,wxT('/')).Last()// basename
     );
 }
 void MyFrame::OnSaveFile(wxCommandEvent &)
 {
+    wxFile file;
+    file.Open(path,wxFile::OpenMode::write);
     file.Write(texteditor->GetValue());
-    file.Flush();
-
+    file.Close();
     // Update Status
+    texteditor->SetModified(false);
     panel.statusBar->SetStatusText("Saved");
 
 }

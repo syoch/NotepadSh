@@ -22,7 +22,7 @@ private:
         wxStatusBar *statusBar;
     } panel;
     // Datas
-    wxFile file;
+    wxString path;
     // Handlers
     void OnOpenFile(wxCommandEvent &);
     void OnSaveFile(wxCommandEvent &);
