@@ -106,4 +106,19 @@ void MyFrame::OnCloseFile(wxCommandEvent &)
     panel.statusBar->SetStatusText("Closed");
 }
 void MyFrame::EnterTextEditor(wxCommandEvent &event)
-{}
+{
+    static wxString last;
+
+    wxString currentString=texteditor->GetValue();
+
+    const size_t 
+        last_len=last.length(),
+        currentString_len=currentString.length();
+    
+    std::cout
+        <<last<<"["<<last_len<<"]"
+        <<" "
+        <<currentString<<"["<<currentString_len<<"]"<<std::endl;
+
+    last=currentString;
+}
