@@ -52,6 +52,12 @@ MyFrame::MyFrame()
 }
 void MyFrame::OnExit(wxCommandEvent &)
 {
+    if(texteditor->IsModified()){
+        int ret=wxMessageBox("File not saved.\nSave to Close?","Warning",wxYES_NO);
+        if(ret==wxID_YES){
+            save();
+        }
+    }
     Close(true);
 }
 void MyFrame::OnAbout(wxCommandEvent &)
@@ -82,7 +88,7 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     // Clear editor
     texteditor->Clear();
     texteditor->SetModified(false);
-    
+
     //　Read
     wxString buffer;
     file.ReadAll(&buffer);
