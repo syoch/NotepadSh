@@ -6,7 +6,6 @@ enum WidgetIDs
 {
     ID_OpenFile,
     ID_SaveFile,
-    ID_CloseFile,
     ID_TextEditor
 };
 
