@@ -115,10 +115,14 @@ void MyFrame::EnterTextEditor(wxCommandEvent &event)
         last_len=last.length(),
         currentString_len=currentString.length();
     
-    std::cout
-        <<last<<"["<<last_len<<"]"
-        <<" "
-        <<currentString<<"["<<currentString_len<<"]"<<std::endl;
+    if(last_len+1 == currentString_len){
+        std::cout<<"add: "<<(int)currentString.Last()<<std::endl;
+    }else{
+        std::cout
+            <<last<<"["<<last_len<<"]"
+            <<" "
+            <<currentString<<"["<<currentString_len<<"]"<<std::endl;
+    }
 
     last=currentString;
 }
