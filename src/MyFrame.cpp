@@ -65,10 +65,7 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     if(texteditor->IsModified()){
         int ret=wxMessageBox("File not saved.\nSave to Open?","Warning",wxYES_NO);
         if(ret==wxID_YES){
-            wxFile file;
-            file.Open(path,wxFile::OpenMode::write);
-            file.Write(texteditor->GetValue());
-            file.Close();
+            save();
         }
     }
     // Ask
@@ -100,10 +97,7 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
 }
 void MyFrame::OnSaveFile(wxCommandEvent &)
 {
-    wxFile file;
-    file.Open(path,wxFile::OpenMode::write);
-    file.Write(texteditor->GetValue());
-    file.Close();
+    save();
     // Update Status
     texteditor->SetModified(false);
     panel.statusBar->SetStatusText("Saved");
@@ -150,4 +144,10 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
     }
 
     last=currentString;
+}
+void MyFrame::save(){
+    wxFile file;
+    file.Open(path,wxFile::OpenMode::write);
+    file.Write(texteditor->GetValue());
+    file.Close();
 }

@@ -23,6 +23,8 @@ private:
     } panel;
     // Datas
     wxString path;
+    // functions 
+    void save();
     // Handlers
     void OnOpenFile(wxCommandEvent &);
     void OnSaveFile(wxCommandEvent &);
