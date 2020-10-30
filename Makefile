@@ -64,6 +64,11 @@ info:
 	@echo "| include : $(INCDIR) : -----"
 	@echo "| object  : $(OBJDIR) : $(OBJS)"
 	@echo "| depend  : $(DEPDIR) : $(DEPS)"
+	@echo "|-------------------"
+	@echo "| exec"
+	@echo "|  wx:$(WX_CONFIG)"
+	@echo "| cxx:$(CXX)"
+	@echo "|   c:$(CC)"
 	@echo "--------------------"
 
 # Program Rule
