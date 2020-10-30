@@ -61,6 +61,16 @@ void MyFrame::OnAbout(wxCommandEvent &)
 }
 void MyFrame::OnOpenFile(wxCommandEvent &)
 {
+    // Check modified
+    if(texteditor->IsModified()){
+        int ret=wxMessageBox("File not saved.\nSave to Open?","Warning",wxYES_NO);
+        if(ret==wxID_YES){
+            wxFile file;
+            file.Open(path,wxFile::OpenMode::write);
+            file.Write(texteditor->GetValue());
+            file.Close();
+        }
+    }
     // Ask
     path=wxLoadFileSelector("Filename","*");
     
@@ -74,7 +84,8 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     }
     // Clear editor
     texteditor->Clear();
-
+    texteditor->SetModified(false);
+    
     //　Read
     wxString buffer;
     file.ReadAll(&buffer);
