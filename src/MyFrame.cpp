@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "widgetids.h"
+#include "command.h"
 #include "MyFrame.h"
 
 #include <wx/file.h>
