@@ -117,6 +117,8 @@ void MyFrame::EnterTextEditor(wxCommandEvent &event)
     
     if(last_len+1 == currentString_len){
         std::cout<<"add: "<<(int)currentString.Last()<<std::endl;
+    }else if(currentString_len+1 == last_len){
+        std::cout<<"backspace"<<std::endl;
     }else{
         std::cout
             <<last<<"["<<last_len<<"]"
