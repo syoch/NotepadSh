@@ -124,8 +124,8 @@ void MyFrame::EnterTextEditor(wxCommandEvent &event)
         }
         
         std::cout<<std::endl;
-    }else if(currentString_len+1 == last_len){
-        std::cout<<"backspace"<<std::endl;
+    }else if(last_len > currentString_len){
+        std::cout<<"delete"<<last_len-currentString_len<<":"<<std::endl;
     }else{
         std::cout
             <<last<<"["<<last_len<<"]"
