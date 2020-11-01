@@ -15,5 +15,4 @@ bool command::buffer::remove(size_t start,wxString str){
 }
 
 void command::buffer::update(){
-    //std::cout<<command::buffer::buffer;
 }
