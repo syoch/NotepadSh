@@ -29,6 +29,7 @@ private:
     void OnOpenFile(wxCommandEvent &);
     void OnSaveFile(wxCommandEvent &);
     void EnterTextEditor(wxCommandEvent &);
+    void Idle(wxIdleEvent &);
     void OnExit(wxCommandEvent &);
     void OnAbout(wxCommandEvent &);
 

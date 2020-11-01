@@ -10,6 +10,7 @@ wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
     EVT_MENU(ID_SaveFile, MyFrame::OnSaveFile)
     EVT_TEXT(ID_TextEditor,MyFrame::EnterTextEditor)
+    EVT_IDLE(MyFrame::Idle)
     EVT_MENU(wxID_EXIT, MyFrame::OnExit)
     EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
 wxEND_EVENT_TABLE()
@@ -146,6 +147,9 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
     }
 
     last=currentString;
+}
+void MyFrame::Idle(wxIdleEvent&){
+
 }
 void MyFrame::save(){
     wxFile file;
