@@ -4,15 +4,17 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-namespace command{
-    namespace buffer
-    {
-        extern wxString buffer;
-        bool add(wxString);
-        bool remove(size_t start,wxString);
-        void update();
-    } // namespace buffer
-    
-}
+class command{
+private:
+    wxString text;
+    void update();    
+public:
+    command();
+
+    bool append(wxString);
+    bool remove(size_t start,wxString);
+
+    wxTextCtrl *textctrl;
+};
 
 #endif // !defined(COMMAND_H)

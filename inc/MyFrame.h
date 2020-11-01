@@ -3,6 +3,7 @@
 #define MY_FRAME_H
 
 #include <wx/file.h>
+#include <command.h>
 
 class MyFrame : public wxFrame
 {
@@ -23,6 +24,7 @@ private:
     } panel;
     // Datas
     wxString path;
+    command command_processer;
     // functions 
     void save();
     // Handlers
