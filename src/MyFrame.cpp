@@ -121,25 +121,25 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
     
     if(last_len < currentString_len){
         size_t diff=currentString_len-last_len;
+        
         // Search End - begin
         size_t offset=0;
         while(last[last_len-offset]==currentString[currentString_len-offset])offset++;
         offset-=1;
         // Search End - end        
+
         wxString change;
         for (size_t i = diff+offset; i > offset; i--) // (diff ~ 0)+offset
-        {
             change+=currentString[currentString_len-i];
-        }
+
         command::buffer::add(change);
     }else if(last_len > currentString_len){
         const size_t size=last_len-currentString_len;
 
         wxString change;
         for (size_t i = 0; i < size; i++)
-        {
             change+=last[last_len-size+i];
-        }
+
         command::buffer::remove(last_len-size,change);
     }else if(last_len==currentString_len){
         // Pressed copy or cut?
