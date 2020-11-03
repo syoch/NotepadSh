@@ -48,7 +48,7 @@ MyFrame::MyFrame()
     texteditor->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
     panel.sizer->Add(texteditor,1,wxALL|wxEXPAND,1);
     // - - - - add to command
-    command.textctrl=texteditor;
+    command_processer.textctrl=texteditor;
     // - Set sizer
     panel.panel->SetSizer(panel.sizer);
     Layout();
@@ -135,7 +135,7 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
         for (size_t i = diff+offset; i > offset; i--) // (diff ~ 0)+offset
             change+=currentString[currentString_len-i];
 
-        command::buffer::add(change);
+        command_processer.append(change);
     }else if(last_len > currentString_len){
         const size_t size=last_len-currentString_len;
 
@@ -143,7 +143,7 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
         for (size_t i = 0; i < size; i++)
             change+=last[last_len-size+i];
 
-        command::buffer::remove(last_len-size,change);
+        command_processer.remove(last_len-size,change);
     }else if(last_len==currentString_len){
         // Pressed copy or cut?
     }
@@ -151,7 +151,6 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
     last=currentString;
 }
 void MyFrame::Idle(wxIdleEvent&){
-    command::buffer::;
 }
 void MyFrame::save(){
     wxFile file;
