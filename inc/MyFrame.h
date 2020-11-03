@@ -24,6 +24,7 @@ private:
     } panel;
     // Datas
     wxString path;
+    wxString buffer;
     command command_processer;
     // functions 
     void save();
