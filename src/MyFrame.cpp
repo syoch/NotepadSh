@@ -49,6 +49,7 @@ MyFrame::MyFrame()
     panel.sizer->Add(texteditor,1,wxALL|wxEXPAND,1);
     // - - - - add to command
     command_processer.textctrl=texteditor;
+    command_processer.buffer=&buffer;
     // - Set sizer
     panel.panel->SetSizer(panel.sizer);
     Layout();

@@ -13,6 +13,7 @@ public:
     void update();    
 
     wxTextCtrl *textctrl;
+    wxString *buffer;
 };
 
 #endif // !defined(COMMAND_H)
