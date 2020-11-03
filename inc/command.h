@@ -5,8 +5,6 @@
 #define COMMAND_H
 
 class command{
-private:
-    wxString text;
 public:
     command();
 
