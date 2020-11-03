@@ -12,5 +12,7 @@ void command::update(){
     long insertPos=textctrl->GetInsertionPoint();
     if(text.substr(text.length()-3,(size_t)insertPos)==">>>"){
         std::cout<<"start!!!"<<std::endl;
+    }else{
+        std::cout<<"unexcepted stop"<<std::endl;
     }
 }
