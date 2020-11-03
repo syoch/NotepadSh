@@ -8,8 +8,6 @@ class command{
 public:
     command();
 
-    bool append(wxString);
-    bool remove(size_t start,wxString);
     void update();    
 
     wxTextCtrl *textctrl;
