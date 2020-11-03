@@ -7,12 +7,12 @@
 class command{
 private:
     wxString text;
-    void update();    
 public:
     command();
 
     bool append(wxString);
     bool remove(size_t start,wxString);
+    void update();    
 
     wxTextCtrl *textctrl;
 };
