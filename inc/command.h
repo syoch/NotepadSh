@@ -10,7 +10,7 @@ class command{
 public:
     command();
 
-    void update();    
+    void update();
 
     MyFrame *target;
 };
