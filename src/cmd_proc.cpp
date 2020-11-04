@@ -1,6 +1,10 @@
 #include "pch.h"
 #include "cmd_proc.h"
 
+commandProcessor::target::target(wxString src){
+    // TODO :save src
+}
+
 wxArrayString commandProcessor::target::tokenize(wxString src)
 {
     // split
