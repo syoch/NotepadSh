@@ -4,14 +4,15 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
+class MyFrame;
+
 class command{
 public:
     command();
 
     void update();    
 
-    wxTextCtrl *textctrl;
-    wxString *buffer;
+    MyFrame *target;
 };
 
 #endif // !defined(COMMAND_H)

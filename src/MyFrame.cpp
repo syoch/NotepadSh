@@ -48,8 +48,7 @@ MyFrame::MyFrame()
     texteditor->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
     panel.sizer->Add(texteditor,1,wxALL|wxEXPAND,1);
     // - - - - add to command
-    command_processer.textctrl=texteditor;
-    command_processer.buffer=&buffer;
+    command_processer.target=this;
     // - Set sizer
     panel.panel->SetSizer(panel.sizer);
     Layout();

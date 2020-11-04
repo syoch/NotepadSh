@@ -9,10 +9,9 @@ class MyFrame : public wxFrame
 {
 public:
     MyFrame();
-
-private:
     // Widgets
     wxTextCtrl *texteditor;
+private:
     struct
     {
         wxPanel *panel;
