@@ -10,7 +10,7 @@ class command{
 public:
     command();
 
-    void update(wxString change="");
+    void update();
 
     MyFrame *target;
 };
