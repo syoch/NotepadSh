@@ -7,6 +7,8 @@
 namespace commandProcessor
 {
     class target{
+    private:
+        wxString src;
     public:
         target(wxString);
         wxArrayString tokenize(wxString);
