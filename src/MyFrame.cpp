@@ -114,37 +114,7 @@ void MyFrame::OnSaveFile(wxCommandEvent &)
 }
 void MyFrame::EnterTextEditor(wxCommandEvent &)
 {
-    wxString currentString=texteditor->GetValue();
-
-    const size_t 
-        last_len=buffer.length(),
-        currentString_len=currentString.length();
-    
-    if(last_len < currentString_len){
-        size_t diff=currentString_len-last_len;
-        
-        // Search End - begin
-        size_t offset=0;
-        while(buffer[last_len-offset]==currentString[currentString_len-offset])offset++;
-        offset-=1;
-        // Search End - end        
-
-        wxString change;
-        for (size_t i = diff+offset; i > offset; i--) // (diff ~ 0)+offset
-            change+=currentString[currentString_len-i];
-
-        command_processer.update();
-    }else if(last_len > currentString_len){
-        const size_t size=last_len-currentString_len;
-
-        wxString change;
-        for (size_t i = 0; i < size; i++)
-            change+=buffer[last_len-size+i];
-
-        command_processer.update();
-    }
-
-    buffer=currentString;
+    command_processer.update();
 }
 void MyFrame::Idle(wxIdleEvent&){
 }
