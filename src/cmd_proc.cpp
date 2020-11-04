@@ -43,3 +43,7 @@ commandProcessor::target* commandProcessor::target::tokenize()
     }
     return this;
 }
+
+commandProcessor::target* commandProcessor::target::fix(){
+    
+}
