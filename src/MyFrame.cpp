@@ -142,8 +142,6 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
             change+=buffer[last_len-size+i];
 
         command_processer.update();
-    }else if(last_len==currentString_len){
-        // Pressed copy or cut?
     }
 
     buffer=currentString;
