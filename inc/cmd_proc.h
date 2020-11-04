@@ -6,6 +6,7 @@
 
 namespace commandProcessor
 {
+    class target{};
     wxArrayString tokenize(wxString);
 } // namespace commendProcessor
 
