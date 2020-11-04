@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "command.h"
 #include "MyFrame.h"
+#include "cmd_proc.h"
 command::command(){
 }
 
