@@ -11,11 +11,12 @@ void command::update(){
     if(text.length() < 3)return;
 
     long insertPos=target->texteditor->GetInsertionPoint();
-    if(text.substr(text.length()-3,(size_t)insertPos)==">>>" && isInCommand==false){
+    wxString suffix=text.substr(text.length()-3,(size_t)insertPos);
+    if(suffix==">>>" && isInCommand==false){
         start=insertPos;
         isInCommand=true;
     }
-    if(text.substr(text.length()-3,(size_t)insertPos)=="<<<" && isInCommand==true){
+    if(suffix=="<<<" && isInCommand==true){
         wxString command=text.SubString(start,insertPos-4);
         isInCommand=false;
     }
