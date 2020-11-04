@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "cmd_proc.h"
 
-wxArrayString commandProcessor::tokenize(wxString src)
+wxArrayString commandProcessor::target::tokenize(wxString src)
 {
     // split
     wxArrayString tokens;
