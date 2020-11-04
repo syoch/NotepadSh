@@ -10,8 +10,10 @@ namespace commandProcessor
     private:
         wxString src;
     public:
+        wxArrayString tokens;
+
         target(wxString);
-        wxArrayString tokenize();
+        target* tokenize();
     };
 } // namespace commendProcessor
 
