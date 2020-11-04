@@ -7,7 +7,7 @@ commandProcessor::target::target(wxString _src)
     
 }
 
-wxArrayString commandProcessor::target::tokenize(wxString src)
+wxArrayString commandProcessor::target::tokenize()
 {
     // split
     wxArrayString tokens;

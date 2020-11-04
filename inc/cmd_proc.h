@@ -11,7 +11,7 @@ namespace commandProcessor
         wxString src;
     public:
         target(wxString);
-        wxArrayString tokenize(wxString);
+        wxArrayString tokenize();
     };
 } // namespace commendProcessor
 
