@@ -133,7 +133,7 @@ void MyFrame::EnterTextEditor(wxCommandEvent &)
         for (size_t i = diff+offset; i > offset; i--) // (diff ~ 0)+offset
             change+=currentString[currentString_len-i];
 
-        command_processer.update();
+        command_processer.update(change);
     }else if(last_len > currentString_len){
         const size_t size=last_len-currentString_len;
 
