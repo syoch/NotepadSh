@@ -4,7 +4,7 @@
 command::command(){
 }
 
-void command::update(){
+void command::update(wxString change){
     static bool isInCommand;
     wxString text=target->texteditor->GetValue();
     if(text.length() < 3)return;
