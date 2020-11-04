@@ -18,7 +18,7 @@ void command::update(){
     }
     if(text.substr(text.length()-3,(size_t)insertPos)=="<<<" && isInCommand==true){
         std::cout<<"end!!!"<<std::endl;
-        wxString command=text.SubString(start,insertPos-3);
+        wxString command=text.SubString(start,insertPos-4);
         isInCommand=false;
     }
 
