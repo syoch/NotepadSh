@@ -9,7 +9,7 @@ namespace commandProcessor
     class target{
     public:
         enum TokenType{
-            LITERAL,
+            STRING,
             NUMBER,
             NAME,
             BUILTIN,
