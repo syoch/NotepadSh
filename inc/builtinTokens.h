@@ -4,6 +4,8 @@
 #ifndef BUILTINTOKENS_H
 #define BUILTINTOKENS_H
 
-extern std::vector<std::string> builtinTokens;
+extern std::vector<wxString> builtinTokens;
+
+bool isBuiltinToken(wxString str);
 
 #endif // !defined(BUILTINTOKENS_H)
