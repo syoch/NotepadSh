@@ -37,8 +37,12 @@ commandProcessor::target* commandProcessor::target::tokenize()
             size_t start=i;
             while(wxIsalpha(src[i]))i++;
             i--;
-            
-            tokens.push_back(std::make_pair(NAME,src.SubString(start,i)));
+            wxString token=src.SubString(start,i);
+            if(isBuiltinToken(token)){
+                tokens.push_back(std::make_pair(BUILTIN,token));
+            }else{
+                tokens.push_back(std::make_pair(NAME,token));
+            }
         }else{
             tokens.push_back(std::make_pair(UNKNOWN,ch));
         }

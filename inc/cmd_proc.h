@@ -1,5 +1,5 @@
 #include "pch.h"
-
+#include "builtinTokens.h"
 #pragma once
 #ifndef CMD_PROC_H
 #define CMD_PROC_H
