@@ -45,5 +45,8 @@ commandProcessor::target* commandProcessor::target::tokenize()
 }
 
 commandProcessor::target* commandProcessor::target::fix(){
+    return this;
+}
+void commandProcessor::target::fix_function(){
     
 }

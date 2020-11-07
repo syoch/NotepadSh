@@ -9,6 +9,7 @@ namespace commandProcessor
     class target{
     private:
         wxString src;
+        void fix_function();
     public:
         wxArrayString tokens;
 
