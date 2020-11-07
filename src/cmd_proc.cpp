@@ -33,6 +33,12 @@ commandProcessor::target* commandProcessor::target::tokenize()
             }
 
             tokens.push_back(std::make_pair(STRING,src.SubString(start,i)));
+        }else if(wxIsalpha(ch)){
+            size_t start=i;
+            while(wxIsalpha(src[i]))i++;
+            i--;
+            
+            tokens.push_back(std::make_pair(NAME,src.SubString(start,i)));
         }else{
             tokens.push_back(std::make_pair(UNKNOWN,ch));
         }
