@@ -34,7 +34,7 @@ commandProcessor::target* commandProcessor::target::tokenize()
 
             tokens.push_back(std::make_pair(STRING,src.SubString(start,i)));
         }else{
-            std::cout<<" "<<wxString(ch)<<std::endl;
+            tokens.push_back(std::make_pair(UNKNOWN,ch));
         }
     }
     if (!buffer.empty())
