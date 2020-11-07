@@ -23,6 +23,16 @@ commandProcessor::target* commandProcessor::target::tokenize()
             i--;
 
             tokens.push_back(std::make_pair(NUMBER,src.SubString(start,i)));
+        }else if(ch=='\'')
+        {
+            size_t start=i;
+            i++;
+            while(src[i]!='\''){
+                i++;
+                if(src[i]=='\\')i++;
+            }
+
+            tokens.push_back(std::make_pair(STRING,src.SubString(start,i)));
         }else{
             std::cout<<" "<<wxString(ch)<<std::endl;
         }
