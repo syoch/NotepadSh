@@ -22,7 +22,7 @@ commandProcessor::target* commandProcessor::target::tokenize()
             while(wxIsdigit(src[i]))i++;
             i--;
 
-            std::cout<<"n"<<src.SubString(start,i)<<std::endl;
+            tokens.push_back(std::make_pair(NUMBER,src.SubString(start,i)));
         }else{
             std::cout<<" "<<wxString(ch)<<std::endl;
         }
