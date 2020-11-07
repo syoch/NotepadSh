@@ -9,6 +9,9 @@ std::vector<wxString> builtinTokens{
     "is", // like a "=="
 };
 
+std::vector<wxString> identitys{
+    "(",")",","," "
+};
 
 bool isBuiltinToken(wxString str){
     auto iter = std::find(
@@ -18,4 +21,14 @@ bool isBuiltinToken(wxString str){
     );
     size_t index = std::distance(builtinTokens.begin(), iter);
     return index != builtinTokens.size();
+}
+
+bool isIdentitys(wxString str){
+    auto iter = std::find(
+        identitys.begin(),
+        identitys.end(),
+        str
+    );
+    size_t index = std::distance(identitys.begin(), iter);
+    return index != identitys.size();
 }
