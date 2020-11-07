@@ -19,9 +19,9 @@ commandProcessor::target* commandProcessor::target::tokenize()
         if (ch == ' ' || ch == ',' || ch == '(' || ch == ')')
         {
             if (!buffer.empty())
-                tokens.push_back(buffer);
+                tokens.push_back(std::make_pair(UNKNOWN,buffer));
             if (ch != ' ')
-                tokens.push_back(ch);
+                tokens.push_back(std::make_pair(UNKNOWN,ch));
             buffer = "";
             continue;
         }
@@ -32,14 +32,14 @@ commandProcessor::target* commandProcessor::target::tokenize()
             size_t before = i;
             while (src[i] != '\'')
                 i++;
-            tokens.push_back(buffer + src.substr(before, i));
+            tokens.push_back(std::make_pair(UNKNOWN,buffer + src.substr(before, i)));
             buffer = "";
             //i+=1; // skip last '
         }
     }
     if (!buffer.empty())
     {
-        tokens.push_back(buffer);
+        tokens.push_back(std::make_pair(UNKNOWN,buffer));
     }
     return this;
 }

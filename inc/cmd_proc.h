@@ -7,11 +7,19 @@
 namespace commandProcessor
 {
     class target{
+    public:
+        enum TokenType{
+            LITERAL,
+            NUMBER,
+            NAME,
+            BUILTIN,
+            UNKNOWN
+        };
     private:
         wxString src;
         void fix_function();
     public:
-        wxArrayString tokens;
+        std::vector<std::pair<TokenType,wxString>> tokens;
 
         target(wxString);
         target* tokenize();
