@@ -13,6 +13,7 @@ namespace commandProcessor
             NUMBER,
             NAME,
             BUILTIN,
+            IDENTITY,
             UNKNOWN
         };
     private:
