@@ -6,6 +6,11 @@
 
 namespace commandProcessor
 {
+    class ast{
+    public:
+        wxString procname;
+        wxArrayString args;
+    };
     class target{
     public:
         enum TokenType{
