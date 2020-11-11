@@ -24,13 +24,11 @@ namespace commandProcessor
         };
     private:
         wxString src;
-        void fix_function();
     public:
         std::vector<std::pair<TokenType,wxString>> tokens;
 
         target(wxString);
         target* tokenize();
-        target* fix();
         ast toAst();
     };
 } // namespace commendProcessor

@@ -57,14 +57,6 @@ commandProcessor::target* commandProcessor::target::tokenize()
     }
     return this;
 }
-
-commandProcessor::target* commandProcessor::target::fix(){
-    fix_function();
-    return this;
-}
-void commandProcessor::target::fix_function(){
-    
-}
 commandProcessor::ast commandProcessor::target::toAst(){
     ast a;
     a.procname=tokens[0].second;
