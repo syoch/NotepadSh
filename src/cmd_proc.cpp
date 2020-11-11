@@ -65,6 +65,11 @@ void commandProcessor::target::fix_function(){
 }
 commandProcessor::ast commandProcessor::target::toAst(){
     ast a;
-
+    a.procname=tokens[0].second;
+    for (size_t i = 1; i < tokens.size(); i++)
+    {
+        a.args.push_back(tokens[i].second);
+    }
+    
     return a;
 }
