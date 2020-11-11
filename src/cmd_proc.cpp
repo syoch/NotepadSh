@@ -37,12 +37,8 @@ commandProcessor::target* commandProcessor::target::tokenize()
             size_t start=i;
             while(wxIsalpha(src[i]))i++;
             i--;
-            wxString token=src.SubString(start,i);
-            if(isBuiltinToken(token)){
-                tokens.push_back(token);
-            }else{
-                tokens.push_back(token);
-            }
+            
+            tokens.push_back(src.SubString(start,i));
         }else if(isIdentitys(ch)){
             tokens.push_back(ch);
         }else if(ch==' '){
