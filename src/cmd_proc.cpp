@@ -22,7 +22,7 @@ commandProcessor::target* commandProcessor::target::tokenize()
             while(wxIsdigit(src[i]))i++;
             i--;
 
-            tokens.push_back(std::make_pair(NUMBER,src.SubString(start,i)));
+            tokens.push_back(src.SubString(start,i));
         }else if(ch=='\'')
         {
             size_t start=i;
@@ -32,41 +32,49 @@ commandProcessor::target* commandProcessor::target::tokenize()
                 if(src[i]=='\\')i++;
             }
 
-            tokens.push_back(std::make_pair(STRING,src.SubString(start,i)));
+            tokens.push_back(src.SubString(start,i));
         }else if(wxIsalpha(ch)){
             size_t start=i;
             while(wxIsalpha(src[i]))i++;
             i--;
             wxString token=src.SubString(start,i);
             if(isBuiltinToken(token)){
-                tokens.push_back(std::make_pair(BUILTIN,token));
+                tokens.push_back(token);
             }else{
-                tokens.push_back(std::make_pair(NAME,token));
+                tokens.push_back(token);
             }
         }else if(isIdentitys(ch)){
-            tokens.push_back(std::make_pair(IDENTITY,ch));
+            tokens.push_back(ch);
         }else if(ch==' '){
             continue;
         }else {
-            tokens.push_back(std::make_pair(UNKNOWN,ch));
+            tokens.push_back(ch);
         }
     }
     if (!buffer.empty())
     {
-        tokens.push_back(std::make_pair(UNKNOWN,buffer));
+        tokens.push_back(buffer);
     }
     return this;
 }
 commandProcessor::ast commandProcessor::target::toAst(){
     ast a;
-    a.text=tokens[0].second;
+    a.text=tokens[0];
     for (size_t i = 1; i < tokens.size(); i++)
     {
         ast *child=new ast;
-        child->text=tokens[i].second;
+        child->text=tokens[i];
         a.children.push_back(child);
     }
-    // fix ['xxx', '(', 'yyy', ',' ... ')'] -> ('xxx',['yyy',...])
 
     return a;
+}
+
+std::ostream& operator<<(std::ostream &st,commandProcessor::ast &ast){
+    st<<ast.text<<"[";
+    for(auto child:ast.children){
+        st<<*child;
+    }
+    st<<"]";
+    return st;
 }

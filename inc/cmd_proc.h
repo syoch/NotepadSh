@@ -24,7 +24,7 @@ namespace commandProcessor
     private:
         wxString src;
     public:
-        std::vector<std::pair<TokenType,wxString>> tokens;
+        std::vector<wxString> tokens;
 
         target(wxString);
         target* tokenize();
@@ -32,5 +32,6 @@ namespace commandProcessor
     };
 } // namespace commendProcessor
 
+std::ostream& operator<<(std::ostream&,commandProcessor::ast&);
 
 #endif // !defined(CMD_PROC_H)
