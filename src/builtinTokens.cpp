@@ -10,7 +10,7 @@ std::vector<wxString> builtinTokens{
 };
 
 std::vector<wxString> identitys{
-    "(",")",","," "
+    "(",")",","
 };
 
 bool isBuiltinToken(wxString str){

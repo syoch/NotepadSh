@@ -45,7 +45,9 @@ commandProcessor::target* commandProcessor::target::tokenize()
             }
         }else if(isIdentitys(ch)){
             tokens.push_back(std::make_pair(IDENTITY,ch));
-        }else{
+        }else if(ch==' '){
+            continue;
+        }else {
             tokens.push_back(std::make_pair(UNKNOWN,ch));
         }
     }
