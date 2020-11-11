@@ -10,6 +10,7 @@ namespace commandProcessor
     public:
         wxString procname;
         wxArrayString args;
+        ast *child;
     };
     class target{
     public:
