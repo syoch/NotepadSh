@@ -63,3 +63,8 @@ commandProcessor::target* commandProcessor::target::fix(){
 void commandProcessor::target::fix_function(){
     
 }
+commandProcessor::ast commandProcessor::target::toAst(){
+    ast a;
+
+    return a;
+}

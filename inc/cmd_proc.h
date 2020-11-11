@@ -30,6 +30,7 @@ namespace commandProcessor
         target(wxString);
         target* tokenize();
         target* fix();
+        ast toAst();
     };
 } // namespace commendProcessor
 
