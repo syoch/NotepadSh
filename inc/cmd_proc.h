@@ -8,9 +8,8 @@ namespace commandProcessor
 {
     class ast{
     public:
-        wxString procname;
-        wxArrayString args;
-        ast *child;
+        wxString text;
+        std::vector<ast*> children;
     };
     class target{
     public:

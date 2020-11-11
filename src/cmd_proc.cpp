@@ -59,11 +59,14 @@ commandProcessor::target* commandProcessor::target::tokenize()
 }
 commandProcessor::ast commandProcessor::target::toAst(){
     ast a;
-    a.procname=tokens[0].second;
+    a.text=tokens[0].second;
     for (size_t i = 1; i < tokens.size(); i++)
     {
-        a.args.push_back(tokens[i].second);
+        ast *child=new ast;
+        child->text=tokens[i].second;
+        a.children.push_back(child);
     }
-    
+    // fix ['xxx', '(', 'yyy', ',' ... ')'] -> ('xxx',['yyy',...])
+
     return a;
 }
