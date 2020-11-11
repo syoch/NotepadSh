@@ -3,9 +3,12 @@
 #ifndef CMD_PARSER_H
 #define CMD_PARSER_H
 
-class ast;
+namespace commandProcessor{
+    class ast;
+};
 
 namespace cmd_parser{
+    commandProcessor::ast& parse(std::vector<wxString>);
 }
 
 #endif // !defined(CMD_PROC_H)
