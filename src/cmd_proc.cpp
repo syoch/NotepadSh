@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "cmd_proc.h"
+#include "cmd_parser.h"
 
 commandProcessor::target::target(wxString _src)
     : src(_src)
@@ -37,7 +38,7 @@ commandProcessor::target* commandProcessor::target::tokenize()
             size_t start=i;
             while(wxIsalpha(src[i]))i++;
             i--;
-            
+
             tokens.push_back(src.SubString(start,i));
         }else if(isIdentitys(ch)){
             tokens.push_back(ch);
@@ -54,16 +55,7 @@ commandProcessor::target* commandProcessor::target::tokenize()
     return this;
 }
 commandProcessor::ast commandProcessor::target::toAst(){
-    ast a;
-    a.text=tokens[0];
-    for (size_t i = 1; i < tokens.size(); i++)
-    {
-        ast *child=new ast;
-        child->text=tokens[i];
-        a.children.push_back(child);
-    }
-
-    return a;
+    return cmd_parser::parse(tokens);
 }
 
 std::ostream& operator<<(std::ostream &st,commandProcessor::ast &ast){
