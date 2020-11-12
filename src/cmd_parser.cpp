@@ -4,6 +4,11 @@
 using namespace commandProcessor;
 using namespace cmd_parser;
 
-ast& parse(std::vector<wxString> tokens){
+std::vector<wxString> tokens;
+
+ast& parse(std::vector<wxString> _tokens){
+    tokens=_tokens;
+}
+ast& function(){
 
 }
