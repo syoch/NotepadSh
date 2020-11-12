@@ -54,7 +54,7 @@ commandProcessor::target* commandProcessor::target::tokenize()
     }
     return this;
 }
-commandProcessor::ast commandProcessor::target::toAst(){
+commandProcessor::ast* commandProcessor::target::toAst(){
     return cmd_parser::parse(tokens);
 }
 

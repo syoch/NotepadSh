@@ -28,7 +28,7 @@ namespace commandProcessor
 
         target(wxString);
         target* tokenize();
-        ast toAst();
+        ast* toAst();
     };
 } // namespace commendProcessor
 

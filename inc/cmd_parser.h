@@ -8,8 +8,8 @@ namespace commandProcessor{
 };
 
 namespace cmd_parser{
-    commandProcessor::ast& parse(std::vector<wxString>);
-    commandProcessor::ast& function();
+    commandProcessor::ast* parse(std::vector<wxString>);
+    commandProcessor::ast* function();
 }
 
 #endif // !defined(CMD_PROC_H)

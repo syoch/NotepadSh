@@ -11,8 +11,8 @@ wxString getToken(){
     return tokens[i++];
 }
 
-ast& cmd_parser::parse(std::vector<wxString> _tokens){
+ast* cmd_parser::parse(std::vector<wxString> _tokens){
     tokens=_tokens;
 }
-ast& cmd_parser::function(){
+ast* cmd_parser::function(){
 }
