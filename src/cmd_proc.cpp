@@ -40,8 +40,6 @@ commandProcessor::target* commandProcessor::target::tokenize()
             i--;
 
             tokens.push_back(src.SubString(start,i));
-        }else if(isIdentitys(ch)){
-            tokens.push_back(ch);
         }else if(ch==' '){
             continue;
         }else {
