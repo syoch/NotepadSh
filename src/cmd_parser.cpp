@@ -21,7 +21,7 @@ wxString peekToken(){
     return tokens[i];
 }
 bool hasData(){
-    return i+1 < tokens.size();
+    return i < tokens.size();
 }
 
 ast* cmd_parser::parse(std::vector<wxString> _tokens){
