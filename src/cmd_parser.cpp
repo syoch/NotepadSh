@@ -6,6 +6,11 @@ using namespace cmd_parser;
 
 std::vector<wxString> tokens;
 
+wxString getToken(){
+    static int i=0;
+    return tokens[i++];
+}
+
 ast& parse(std::vector<wxString> _tokens){
     tokens=_tokens;
 }
