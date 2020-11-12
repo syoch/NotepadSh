@@ -36,5 +36,8 @@ ast* cmd_parser::expr(){
 ast* cmd_parser::stmt(){
     ast* a=new ast;
     a->text=getToken();
+    while(hasData()){
+        a->children.push_back(expr());
+    }
     return a;
 }
