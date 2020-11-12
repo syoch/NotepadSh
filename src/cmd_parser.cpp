@@ -16,4 +16,7 @@ ast* cmd_parser::parse(std::vector<wxString> _tokens){
     return function();
 }
 ast* cmd_parser::function(){
+    ast* a=new ast;
+    a->text=getToken();
+    return a;
 }
