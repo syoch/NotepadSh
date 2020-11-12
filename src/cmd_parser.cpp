@@ -5,9 +5,9 @@ using namespace commandProcessor;
 using namespace cmd_parser;
 
 std::vector<wxString> tokens;
+static size_t i=0;
 
 wxString getToken(){
-    static size_t i=0;
     i+=1;
     if(i>tokens.size()){
         throw "Over:Index";
