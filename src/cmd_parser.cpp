@@ -14,6 +14,15 @@ wxString getToken(){
     }
     return tokens[i-1];
 }
+wxString peekToken(){
+    if(i>tokens.size()){
+        throw "Over:Index";
+    }
+    return tokens[i];
+}
+bool hasData(){
+    return i+1 < tokens.size();
+}
 
 ast* cmd_parser::parse(std::vector<wxString> _tokens){
     tokens=_tokens;
