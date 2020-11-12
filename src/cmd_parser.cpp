@@ -7,8 +7,12 @@ using namespace cmd_parser;
 std::vector<wxString> tokens;
 
 wxString getToken(){
-    static int i=0;
-    return tokens[i++];
+    static size_t i=0;
+    i+=1;
+    if(i>tokens.size()){
+        throw "Over:Index";
+    }
+    return tokens[i-1];
 }
 
 ast* cmd_parser::parse(std::vector<wxString> _tokens){
