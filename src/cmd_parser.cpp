@@ -34,6 +34,11 @@ ast* cmd_parser::expr(){
     if(a->text.IsWord() && peekToken()=="("){
         getToken(); // skip "("
         while(peekToken()!=")"){
+            if(peekToken()==",") // argument split
+            {
+                i++;
+                continue;
+            }
             a->children.push_back(expr());
         }
     }
