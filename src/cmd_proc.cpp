@@ -64,6 +64,8 @@ std::ostream& operator<<(std::ostream &st,commandProcessor::ast &ast){
             st<<*child;
         }
         st<<"]";
+    }else{
+        st<<",";
     }
     return st;
 }
