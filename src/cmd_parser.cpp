@@ -37,6 +37,12 @@ ast* cmd_parser::parse(std::vector<wxString> _tokens){
 ast* cmd_parser::expr(){
     ast* a=new ast;
     a->text=getToken();
+    if(a->text.IsWord() && peekToken()=="("){
+        getToken(); // skip "("
+        while(peekToken()!=")"){
+            a->children.push_back(expr());
+        }
+    }
     return a;
 }
 ast* cmd_parser::stmt(){
