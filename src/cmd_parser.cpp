@@ -41,6 +41,7 @@ ast* cmd_parser::expr(){
             }
             a->children.push_back(expr());
         }
+        getToken();
     }
     return a;
 }
