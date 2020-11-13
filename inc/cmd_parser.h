@@ -8,9 +8,17 @@ namespace commandProcessor{
 };
 
 namespace cmd_parser{
-    commandProcessor::ast* parse(std::vector<wxString>);
-    commandProcessor::ast* stmt();
-    commandProcessor::ast* expr();
+    class ast{
+    public:
+        wxString text;
+        std::vector<ast*> children;
+    };
+    std::vector<wxString> tokenize(wxString);
+    ast* parse(std::vector<wxString>);
+    ast* stmt();
+    ast* expr();
 }
+
+std::ostream& operator<<(std::ostream&,cmd_parser::ast&);
 
 #endif // !defined(CMD_PROC_H)
