@@ -57,12 +57,13 @@ commandProcessor::ast* commandProcessor::target::toAst(){
 }
 
 std::ostream& operator<<(std::ostream &st,commandProcessor::ast &ast){
-    st<<ast.text<<"[";
+    st<<ast.text;
     if(ast.children.size()!=0){
+        st<<"[";
         for(auto child:ast.children){
             st<<*child;
         }
+        st<<"]";
     }
-    st<<"]";
     return st;
 }
