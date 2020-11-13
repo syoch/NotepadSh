@@ -20,6 +20,12 @@ wxString peekToken(){
     }
     return tokens[i];
 }
+wxString nextTokenOrDefault(){
+    if(i+1>tokens.size()){
+        return "";
+    }
+    return tokens[i+1];
+}
 bool hasData(){
     return i < tokens.size();
 }
