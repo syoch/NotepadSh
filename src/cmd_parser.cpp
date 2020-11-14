@@ -40,7 +40,6 @@ std::vector<wxString>* cmd_parser::tokenize(wxString src)
 {
     // split
     std::vector<wxString>* tokens=new std::vector<wxString>;
-    wxString buffer;
     wxUniChar ch;
     size_t i;
     for (i = 0; i < src.length(); i++)
@@ -74,11 +73,6 @@ std::vector<wxString>* cmd_parser::tokenize(wxString src)
         }else {
             tokens->push_back(ch);
         }
-    }
-    if (!buffer.empty())
-    {
-        std::cout<<src<<std::endl;
-        tokens->push_back(buffer);
     }
     return tokens;
 }
