@@ -17,6 +17,7 @@ namespace cmd_parser{
     ast* parse(std::vector<wxString>);
     ast* stmt();
     ast* expr();
+    ast* For();
 }
 
 std::ostream& operator<<(std::ostream&,cmd_parser::ast&);
