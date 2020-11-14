@@ -123,9 +123,10 @@ ast* cmd_parser::stmt(){
 ast* cmd_parser::For(){
     ast* a=new ast;
     a->text=getToken();
-    if(peekToken() == "in")getToken();//skip
-    while(hasData()){
-        a->children.push_back(expr());
-    }
+    a->children.push_back(expr()); //variable
+    getToken();//skip "in"
+    a->children.push_back(expr()); //Iterator
+    a->children.push_back(expr()); //Code
+    
     return a;
 }
