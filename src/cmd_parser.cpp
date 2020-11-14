@@ -99,6 +99,10 @@ ast* cmd_parser::expr(){
             a->children.push_back(expr());
         }
         getToken();
+    }else if(a->text=="("){
+        a->text="";
+        a->children.push_back(expr());
+        getToken();
     }
     return a;
 }
