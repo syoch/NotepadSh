@@ -103,12 +103,18 @@ ast* cmd_parser::expr(){
     return a;
 }
 ast* cmd_parser::stmt(){
-    ast* a=new ast;
-    a->text=getToken();
-    while(hasData()){
-        a->children.push_back(expr());
+    wxString function=peekToken();
+    if(function=="for"){
+        return For();
     }
-    return a;
+    else{
+        ast* a=new ast;
+        a->text=function;
+        while(hasData()){
+            a->children.push_back(expr());
+        }
+        return a;
+    }
 }
 ast* cmd_parser::For(){
     ast* a=new ast;
