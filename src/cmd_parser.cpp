@@ -29,7 +29,7 @@ std::ostream& operator<<(std::ostream &st,ast &ast){
         for(auto child:ast.children){
             st<<*child;
         }
-        st<<"]";
+        st<<"],";
     }else{
         st<<",";
     }
