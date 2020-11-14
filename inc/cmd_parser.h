@@ -13,8 +13,8 @@ namespace cmd_parser{
         wxString text;
         std::vector<ast*> children;
     };
-    std::vector<wxString> tokenize(wxString);
-    ast* parse(std::vector<wxString>);
+    std::vector<wxString>* tokenize(wxString);
+    ast* parse(std::vector<wxString>*);
     ast* parse(wxString);
     ast* stmt();
     ast* expr();

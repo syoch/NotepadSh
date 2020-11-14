@@ -2,24 +2,24 @@
 
 using namespace cmd_parser;
 
-std::vector<wxString> tokens;
+std::vector<wxString>* tokens;
 static size_t i=0;
 
 wxString getToken(){
     i+=1;
-    if(i>tokens.size()){
+    if(i>tokens->size()){
         throw "Over:Index";
     }
-    return tokens[i-1];
+    return (*tokens)[i-1];
 }
 wxString peekToken(){
-    if(i>tokens.size()){
+    if(i>tokens->size()){
         throw "Over:Index";
     }
-    return tokens[i];
+    return (*tokens)[i];
 }
 bool hasData(){
-    return i < tokens.size();
+    return i < tokens->size();
 }
 
 std::ostream& operator<<(std::ostream &st,ast &ast){
@@ -36,10 +36,10 @@ std::ostream& operator<<(std::ostream &st,ast &ast){
     return st;
 }
 
-std::vector<wxString> cmd_parser::tokenize(wxString src)
+std::vector<wxString>* cmd_parser::tokenize(wxString src)
 {
     // split
-    std::vector<wxString> tokens;
+    std::vector<wxString>* tokens=new std::vector<wxString>;
     wxString buffer;
     wxUniChar ch;
     size_t i;
@@ -52,7 +52,7 @@ std::vector<wxString> cmd_parser::tokenize(wxString src)
             while(wxIsdigit(src[i]))i++;
             i--;
 
-            tokens.push_back(src.SubString(start,i));
+            tokens->push_back(src.SubString(start,i));
         }else if(ch=='\'')
         {
             size_t start=i;
@@ -62,26 +62,27 @@ std::vector<wxString> cmd_parser::tokenize(wxString src)
                 if(src[i]=='\\')i++;
             }
 
-            tokens.push_back(src.SubString(start,i));
+            tokens->push_back(src.SubString(start,i));
         }else if(wxIsalpha(ch)){
             size_t start=i;
             while(wxIsalpha(src[i]))i++;
             i--;
 
-            tokens.push_back(src.SubString(start,i));
+            tokens->push_back(src.SubString(start,i));
         }else if(ch==' '){
             continue;
         }else {
-            tokens.push_back(ch);
+            tokens->push_back(ch);
         }
     }
     if (!buffer.empty())
     {
-        tokens.push_back(buffer);
+        std::cout<<src<<std::endl;
+        tokens->push_back(buffer);
     }
     return tokens;
 }
-ast* cmd_parser::parse(std::vector<wxString> _tokens){
+ast* cmd_parser::parse(std::vector<wxString>* _tokens){
     tokens=_tokens;
     return stmt();
 }
