@@ -13,7 +13,7 @@ public:
     command();
 
     void update();
-    void execute(wxString);
+    void execute(cmd_parser::ast*);
 
     MyFrame *target;
 };

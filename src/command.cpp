@@ -20,10 +20,11 @@ void command::update(){
     }
     if(suffix=="<<<" && isInCommand==true){
         wxString command=text.SubString(start,insertPos-4);
-        command::execute(command);
+        command::execute(cmd_parser::parse(command));
         isInCommand=false;
     }
 
 }
-void command::execute(wxString command){
+void command::execute(cmd_parser::ast* command){
+    std::cout<<*command<<std::endl;
 }
