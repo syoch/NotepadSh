@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "command.h"
 #include "MyFrame.h"
+#include "cmd_parser.h"
+
 command::command(){
 }
 
@@ -18,7 +20,10 @@ void command::update(){
     }
     if(suffix=="<<<" && isInCommand==true){
         wxString command=text.SubString(start,insertPos-4);
+        command::execute(command);
         isInCommand=false;
     }
 
+}
+void command::execute(wxString command){
 }
