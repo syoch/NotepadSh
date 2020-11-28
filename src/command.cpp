@@ -26,7 +26,7 @@ void command::update(){
 
 }
 void command::eval(cmd_parser::ast* command){
-    std::cout<<*command<<std::endl;
+    wxString string=command->text.Lower();
 }
 void command::execute(cmd_parser::ast* command){
     eval(command);
