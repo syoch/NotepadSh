@@ -9,7 +9,7 @@ class MyFrame;
 namespace cmd_parser{
     class ast;
 }
-struct cmdIterator{
+struct object{
     union{
         std::vector<wxString>* string;
         std::vector<int>* integer;
@@ -19,13 +19,14 @@ struct cmdIterator{
         INTEGER
     } type;
 };
+typedef std::vector<object> objects;
 class command{
 public:
     command();
 
     void update();
-    cmdIterator* evalIterator(cmd_parser::ast*);
-    void eval(cmd_parser::ast*);
+    objects evalIterator(cmd_parser::ast*);
+    object eval(cmd_parser::ast*);
     void execute(cmd_parser::ast*);
 
     MyFrame *target;
