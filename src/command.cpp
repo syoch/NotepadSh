@@ -25,6 +25,19 @@ void command::update(){
     }
 
 }
+cmdIterator* command::evalIterator(cmd_parser::ast* cmd){
+    cmdIterator *a = new cmdIterator;
+    wxString name=cmd->text.Lower();
+    std::cout<<name<<std::endl;
+    if(name=="range"){
+        a->type=a->INTEGER;
+        std::cout<<cmd->children.size()<<std::endl;
+        eval(cmd->children[0]);
+        eval(cmd->children[1]);
+        eval(cmd->children[2]);
+    }
+    return a;
+}
 void command::eval(cmd_parser::ast* command){
     wxString string=command->text.Lower();
     if(string=="for"){
