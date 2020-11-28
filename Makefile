@@ -50,7 +50,7 @@ WX_LIB ?= $(shell $(WX_CONFIG) --libs core,base)
 
 ### Targets
 .PHONY: all info clean pch
-all: info $(TARGET)
+all: $(TARGET)
 
 # PHONY Targets
 clean:
