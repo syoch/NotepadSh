@@ -28,16 +28,13 @@ void command::update(){
 void command::eval(cmd_parser::ast* command){
     wxString string=command->text.Lower();
     if(string=="for"){
-        std::cout
-            <<"for "
-            <<*command->children[0]
-            <<*command->children[1]
-            <<*command->children[2]
-        <<std::endl;
+        std::cout<<"for "<<command->children[0]<<std::endl;
+        eval(command->children[1]);
+        eval(command->children[2]);
     }else{
         std::cout<<"unk "<<*command<<std::endl;
     }
 }
 void command::execute(cmd_parser::ast* command){
-    eval(command);
+    this->eval(command);
 }
