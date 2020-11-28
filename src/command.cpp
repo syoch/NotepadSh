@@ -25,6 +25,9 @@ void command::update(){
     }
 
 }
-void command::execute(cmd_parser::ast* command){
+void command::eval(cmd_parser::ast* command){
     std::cout<<*command<<std::endl;
+}
+void command::execute(cmd_parser::ast* command){
+    eval(command);
 }

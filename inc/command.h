@@ -13,6 +13,7 @@ public:
     command();
 
     void update();
+    void eval(cmd_parser::ast*);
     void execute(cmd_parser::ast*);
 
     MyFrame *target;
