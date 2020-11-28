@@ -27,6 +27,11 @@ void command::update(){
 }
 void command::eval(cmd_parser::ast* command){
     wxString string=command->text.Lower();
+    if(string=="for"){
+        std::cout<<"for "<<*command<<std::endl;
+    }else{
+        std::cout<<"unk "<<*command<<std::endl;
+    }
 }
 void command::execute(cmd_parser::ast* command){
     eval(command);
