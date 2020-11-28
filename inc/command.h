@@ -9,11 +9,22 @@ class MyFrame;
 namespace cmd_parser{
     class ast;
 }
+struct cmdIterator{
+    union{
+        wxString* string;
+        int* integer;
+    } value;
+    enum{
+        STRING,
+        INTEGER
+    } type;
+};
 class command{
 public:
     command();
 
     void update();
+    cmdIterator* evalIterator(cmd_parser::ast*);
     void eval(cmd_parser::ast*);
     void execute(cmd_parser::ast*);
 

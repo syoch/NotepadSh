@@ -41,8 +41,9 @@ cmdIterator* command::evalIterator(cmd_parser::ast* cmd){
 void command::eval(cmd_parser::ast* command){
     wxString string=command->text.Lower();
     if(string=="for"){
-        std::cout<<"for "<<command->children[0]<<std::endl;
-        eval(command->children[1]);
+        std::cout<<*command<<std::endl;
+        std::cout<<"for "<<command->children[0]->text<<std::endl;
+        evalIterator(command->children[1]->children[0]);
         eval(command->children[2]);
     }else{
         std::cout<<"unk "<<*command<<std::endl;
