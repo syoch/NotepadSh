@@ -31,7 +31,6 @@ cmdIterator* command::evalIterator(cmd_parser::ast* cmd){
     std::cout<<name<<std::endl;
     if(name=="range"){
         a->type=a->INTEGER;
-        std::cout<<cmd->children.size()<<std::endl;
         eval(cmd->children[0]);
         eval(cmd->children[1]);
         eval(cmd->children[2]);
