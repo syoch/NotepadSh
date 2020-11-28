@@ -11,8 +11,8 @@ namespace cmd_parser{
 }
 struct cmdIterator{
     union{
-        wxString* string;
-        int* integer;
+        std::vector<wxString>* string;
+        std::vector<int>* integer;
     } value;
     enum{
         STRING,
