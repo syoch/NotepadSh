@@ -1,4 +1,5 @@
 #include "pch.h"
+#include <sstream>
 
 #pragma once
 #ifndef COMMAND_H
@@ -17,6 +18,7 @@ public:
     void execute(cmd_parser::ast*);
 
     MyFrame *target;
+    std::stringstream output;
 };
 
 #endif // !defined(COMMAND_H)
