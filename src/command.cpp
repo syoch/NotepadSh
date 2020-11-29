@@ -31,7 +31,7 @@ objects command::evalIterator(cmd_parser::ast* cmd){
     std::cout<<name<<std::endl;
     if(name=="range"){
         // type of a  ==  integer
-        std::cout<<*eval(cmd->children[0]).value.integer;
+        unsigned long long start= *eval(cmd->children[0]).value.integer;
         eval(cmd->children[1]);
         eval(cmd->children[2]);
     }
