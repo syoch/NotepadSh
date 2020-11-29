@@ -3,9 +3,6 @@
 #include "command.h"
 #include "MyFrame.h"
 
-#include <wx/file.h>
-#include <fstream>
-
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
     EVT_MENU(ID_SaveFile, MyFrame::OnSaveFile)

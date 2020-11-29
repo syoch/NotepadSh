@@ -3,6 +3,7 @@
 #define MY_FRAME_H
 
 #include <wx/file.h>
+#include <fstream>
 #include <command.h>
 
 class MyFrame : public wxFrame
