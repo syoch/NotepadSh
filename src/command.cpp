@@ -2,8 +2,9 @@
 #include "command.h"
 #include "MyFrame.h"
 #include "cmd_parser.h"
+#include "utils.h"
 
-const wxString mathFuncs[] ={
+wxString mathFuncs[] ={
     "sin",  "asin",
     "cos",  "acos",
     "tan",  "atan",
@@ -58,7 +59,11 @@ object command::eval(cmd_parser::ast* command){
         eval(command->children[2]);
     }else if(string.IsNumber() && command->children.size()==0){
         ret.type=object::INTEGER;
+        ret.value.integer=new unsigned long long ;
         string.ToULongLong(ret.value.integer);
+    }else if(isContains(mathFuncs,string)){
+        ret.type=object::INTEGER;
+        *ret.value.integer=0;
     }else{
         std::cout<<"unk "<<*command<<std::endl;
     }
