@@ -11,8 +11,8 @@ namespace cmd_parser{
 }
 struct object{
     union{
-        std::vector<wxString>* string;
-        std::vector<int>* integer;
+        wxString* string;
+        unsigned long long* integer;
     } value;
     enum{
         STRING,
