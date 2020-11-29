@@ -31,7 +31,7 @@ objects command::evalIterator(cmd_parser::ast* cmd){
     std::cout<<name<<std::endl;
     if(name=="range"){
         // type of a  ==  integer
-        eval(cmd->children[0]);
+        std::cout<<*eval(cmd->children[0]).value.integer;
         eval(cmd->children[1]);
         eval(cmd->children[2]);
     }
@@ -44,11 +44,16 @@ object command::eval(cmd_parser::ast* command){
         std::cout<<"for "<<command->children[0]->text<<std::endl;
         evalIterator(command->children[1]->children[0]);
         eval(command->children[2]);
+    }else if(string.IsNumber() && command->children.size()==0){
+        ret.type=object::INTEGER;
+        string.ToULongLong(ret.value.integer);
     }else{
         std::cout<<"unk "<<*command<<std::endl;
     }
     return ret;
 }
 void command::execute(cmd_parser::ast* command){
+    output.clear();
     this->eval(command);
+    std::cout<<output.rdbuf()<<std::endl;
 }
