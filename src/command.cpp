@@ -3,6 +3,17 @@
 #include "MyFrame.h"
 #include "cmd_parser.h"
 
+const wxString mathFuncs[] ={
+    "sin",  "asin",
+    "cos",  "acos",
+    "tan",  "atan",
+    "sinh", "asinh",
+    "cosh", "acosh",
+    "tanh", "atanh",
+    "exp",  "log",
+    "sqrt",
+    "pow"
+};
 command::command(){
 }
 
