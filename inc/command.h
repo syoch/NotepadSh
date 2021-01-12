@@ -1,5 +1,7 @@
 #include "pch.h"
 #include <sstream>
+#include <string>
+#include <map>
 
 #pragma once
 #ifndef COMMAND_H
