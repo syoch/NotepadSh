@@ -5,3 +5,6 @@ notepadsh.exe
 notepadsh
 # IDE
 .vscode
+
+# CMake
+build/
