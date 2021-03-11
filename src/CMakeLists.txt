@@ -1,15 +1,17 @@
-project(NotepadShBin VERSION 0.1.0)
-add_executable(NotepadShBin
-    main.cpp
-    MyApp.cpp
-    MyFrame.cpp
-    command.cpp
-    cmd_parser.cpp
-)
+cmake_minimum_required(VERSION 3.0.0)
+project(NotepadSh VERSION 0.1.0)
 
+# Wxwidgets
 find_package(wxWidgets REQUIRED COMPONENTS net core base)
-
-target_link_libraries(NotepadSh ${wxWidgets_LIBRARIES})
-
 include(${wxWidgets_USE_FILE})
-include_directories(../inc)
+
+
+add_executable(NotepadSh
+ cmd_parser.cpp
+ command.cpp
+ main.cpp
+ MyApp.cpp
+ MyFrame.cpp
+)
+include_directories("../inc/")
+target_link_libraries(NotepadSh ${wxWidgets_LIBRARIES})
