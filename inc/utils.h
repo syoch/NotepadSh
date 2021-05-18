@@ -7,12 +7,13 @@
     Contains Template Utilitys
 */
 
-
-template<typename T,std::size_t size>
-bool isContains(T (&arr)[size],T val){
+template <typename T, std::size_t size>
+bool isContains(T (&arr)[size], T val)
+{
     for (size_t i = 0; i < size; i++)
     {
-        if(arr[i]==val){
+        if (arr[i] == val)
+        {
             return true;
         }
     }

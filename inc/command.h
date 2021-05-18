@@ -8,28 +8,33 @@
 #define COMMAND_H
 
 class MyFrame;
-namespace cmd_parser{
+namespace cmd_parser
+{
     class ast;
 }
-struct object{
-    union{
-        wxString* string;
-        unsigned long long* integer;
+struct object
+{
+    union
+    {
+        wxString *string;
+        unsigned long long *integer;
     } value;
-    enum{
+    enum
+    {
         STRING,
         INTEGER
     } type;
 };
 typedef std::vector<object> objects;
-class command{
+class command
+{
 public:
     command();
 
     void update();
-    objects evalIterator(cmd_parser::ast*);
-    object eval(cmd_parser::ast*);
-    void execute(cmd_parser::ast*);
+    objects evalIterator(cmd_parser::ast *);
+    object eval(cmd_parser::ast *);
+    void execute(cmd_parser::ast *);
 
     MyFrame *target;
     std::stringstream output;

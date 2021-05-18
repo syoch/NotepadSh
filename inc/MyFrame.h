@@ -12,6 +12,7 @@ public:
     MyFrame();
     // Widgets
     wxTextCtrl *texteditor;
+
 private:
     struct
     {
@@ -26,7 +27,7 @@ private:
     wxString path;
     wxString buffer;
     command command_processer;
-    // functions 
+    // functions
     void save();
     // Handlers
     void OnOpenFile(wxCommandEvent &);
