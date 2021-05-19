@@ -1,3 +1,6 @@
+includes+=include_directories('./include')
+
+
 subdir('Application')
 
 executable(

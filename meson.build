@@ -4,5 +4,5 @@ project(
 
 wx=dependency('wxwidgets', required : true)
 
-includes = [include_directories('src/')]
+includes = []
 subdir('src')
