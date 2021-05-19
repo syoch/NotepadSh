@@ -5,4 +5,4 @@ project(
 wx=dependency('wxwidgets', required : true)
 
 includes = []
-subdir('src')
+subdir('NotepadSh')
