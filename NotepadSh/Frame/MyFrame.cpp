@@ -15,23 +15,7 @@ wxEND_EVENT_TABLE()
 MyFrame::MyFrame()
     : wxFrame(NULL, wxID_ANY, wxT("NotepadSH"), wxDefaultPosition, wxSize(400, 400))
 {
-    // MenuBar
-    // - File
-    panel.file = new wxMenu;
-    panel.file->Append(ID_OpenFile, "&Open File\tCtrl-O",
-                       "Open a file.");
-    panel.file->Append(ID_SaveFile, "&Save File\tCtrl-O",
-                       "Save a file.");
-    panel.file->AppendSeparator();
-    panel.file->Append(wxID_EXIT);
-    // - Help
-    panel.help = new wxMenu;
-    panel.help->Append(wxID_ABOUT);
-    // - Bar
-    panel.bar = new wxMenuBar;
-    panel.bar->Append(panel.file, "&File");
-    panel.bar->Append(panel.help, "&Help");
-    SetMenuBar(panel.bar);
+    setupBar();
     // StatusBar
     panel.statusBar = new wxStatusBar(this);
     SetStatusBar(panel.statusBar);
@@ -47,6 +31,25 @@ MyFrame::MyFrame()
     // - Set sizer
     panel.panel->SetSizer(panel.sizer);
     Layout();
+}
+void MyFrame::setupBar()
+{
+    // File
+    auto file = new wxMenu;
+    file->Append(ID_OpenFile, "&Open File\tCtrl-O",
+                 "Open a file.");
+    file->Append(ID_SaveFile, "&Save File\tCtrl-O",
+                 "Save a file.");
+    file->AppendSeparator();
+    file->Append(wxID_EXIT);
+    // Help
+    auto help = new wxMenu;
+    help->Append(wxID_ABOUT);
+    // Bar
+    auto bar = new wxMenuBar;
+    bar->Append(file, "&File");
+    bar->Append(help, "&Help");
+    SetMenuBar(bar);
 }
 void MyFrame::OnExit(wxCommandEvent &)
 {

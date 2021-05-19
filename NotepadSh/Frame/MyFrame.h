@@ -13,6 +13,8 @@ public:
   wxTextCtrl *texteditor;
 
 private:
+  // constructing
+  void setupBar();
   struct
   {
     wxPanel *panel;
