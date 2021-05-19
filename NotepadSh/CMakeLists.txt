@@ -8,10 +8,12 @@ include(${wxWidgets_USE_FILE})
 # SubDirectories
 add_subdirectory(Frame)
 
+# Sources
 add_executable(NotepadSh
  main.cpp
  MyApp.cpp
 )
+add_library(Frame STATIC ./src/MyFrame.cpp)
 
 target_include_directories(NotepadSh INTERFACE "./include/")
 target_include_directories(NotepadSh INTERFACE "./Frame/include/")
