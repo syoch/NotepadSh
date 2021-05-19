@@ -1,8 +1,9 @@
 subdir('Application')
 
 executable(
-  'calculator', ['main.cpp'],
-  include_directories: includes,
+  'NotepadSh', [
+    'main.cpp'
+  ],
   dependencies:[
     dependency('wxwidgets', required : true),
     App

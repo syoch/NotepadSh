@@ -1,10 +1,12 @@
+includes+=include_directories('.')
+
+App_lib=library(
+  'App', ['MyApp.cpp','MyFrame.cpp'],
+  include_directories: includes,
+  dependencies:[wx]
+)
+
 App=declare_dependency(
-  link_with : [
-    library(
-      'App', ['MyApp.cpp','MyFrame.cpp'],
-      include_directories: [include_directories('.'),includes],
-      dependencies:[dependency('wxwidgets', required : true)]
-    )
-  ],
-  include_directories : ['.']
+  link_with : App_lib,
+  include_directories : includes
 )
