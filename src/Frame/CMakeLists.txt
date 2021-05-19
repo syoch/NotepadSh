@@ -1,5 +1,11 @@
 cmake_minimum_required(VERSION 3.1)
 project(Frame)
-add_library(frame STATIC ./src/MyFrame.cpp)
-target_compile_features(frame PRIVATE cxx_std_11)
-target_include_directories(frame INTERFACE ./include)
+
+# Wxwidgets
+find_package(wxWidgets REQUIRED COMPONENTS net core base)
+include(${wxWidgets_USE_FILE})
+
+# Sources
+add_library(Frame STATIC ./src/MyFrame.cpp)
+target_include_directories(Frame INTERFACE ./include)
+target_link_libraries(Frame ${wxWidgets_LIBRARIES})
