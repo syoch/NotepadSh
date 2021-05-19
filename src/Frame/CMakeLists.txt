@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.1)
+project(uftree_lib)
+add_library(uftree STATIC ./src/MyFrame.cpp)
+target_compile_features(uftree PRIVATE cxx_std_11)
+target_include_directories(uftree INTERFACE ./include)
