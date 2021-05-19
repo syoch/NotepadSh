@@ -42,8 +42,6 @@ wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     texteditor = new wxTextCtrl(panel.panel, ID_TextEditor, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER | wxTE_PROCESS_TAB | wxTE_MULTILINE);
     texteditor->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
     panel.sizer->Add(texteditor, 1, wxALL | wxEXPAND, 1);
-    // - - - - add to command
-    command_processer.target = this;
     // - Set sizer
     panel.panel->SetSizer(panel.sizer);
     Layout();
