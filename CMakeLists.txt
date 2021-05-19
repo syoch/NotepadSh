@@ -7,8 +7,6 @@ include(${wxWidgets_USE_FILE})
 
 
 add_executable(NotepadSh
- src/cmd_parser.cpp
- src/command.cpp
  src/main.cpp
  src/MyApp.cpp
  src/MyFrame.cpp

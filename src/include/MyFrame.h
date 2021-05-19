@@ -4,7 +4,6 @@
 
 #include <wx/file.h>
 #include <fstream>
-#include <command.h>
 
 class MyFrame : public wxFrame
 {
@@ -26,7 +25,7 @@ private:
     // Datas
     wxString path;
     wxString buffer;
-    command command_processer;
+    //command command_processer;
     // functions
     void save();
     // Handlers

@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "widgetids.h"
-#include "command.h"
 #include "MyFrame.h"
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
@@ -44,7 +43,7 @@ wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     texteditor->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
     panel.sizer->Add(texteditor, 1, wxALL | wxEXPAND, 1);
     // - - - - add to command
-    command_processer.target = this;
+    //command_processer.target = this;
     // - Set sizer
     panel.panel->SetSizer(panel.sizer);
     Layout();
@@ -114,7 +113,7 @@ void MyFrame::OnSaveFile(wxCommandEvent &)
 }
 void MyFrame::EnterTextEditor(wxCommandEvent &)
 {
-    command_processer.update();
+    //command_processer.update();
 }
 void MyFrame::save()
 {
