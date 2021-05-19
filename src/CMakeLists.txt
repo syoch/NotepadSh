@@ -14,6 +14,6 @@ add_executable(NotepadSh
  main.cpp
  MyApp.cpp
 )
-include_directories("src/include/")
+include_directories("./include/")
 target_link_libraries(NotepadSh ${wxWidgets_LIBRARIES})
 target_link_libraries(NotepadSh ${frame_LIBRARIES})
