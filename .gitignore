@@ -7,3 +7,4 @@ notepadsh.exe
 
 # CMake
 build/
+builddir/
