@@ -2,7 +2,7 @@
 NotepadSh is a cross platform text editor application.
 # Depend
 Wxwidgets
-( C++ compiler )
+(and  C++ compiler )
 # features
 - [x] A basic text edit (read/write/undo/redo/etc...)
 - [ ] Special Command
