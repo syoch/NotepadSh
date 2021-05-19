@@ -2,15 +2,17 @@
 #include "widgetids.h"
 #include "MyFrame.h"
 
+// clang-format off
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
     EVT_MENU(ID_OpenFile, MyFrame::OnOpenFile)
-        EVT_MENU(ID_SaveFile, MyFrame::OnSaveFile)
-            EVT_TEXT(ID_TextEditor, MyFrame::EnterTextEditor)
-                EVT_MENU(wxID_EXIT, MyFrame::OnExit)
-                    EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
-                        wxEND_EVENT_TABLE()
-
-                            MyFrame::MyFrame()
+    EVT_MENU(ID_SaveFile, MyFrame::OnSaveFile)
+    EVT_TEXT(ID_TextEditor, MyFrame::EnterTextEditor)
+    EVT_MENU(wxID_EXIT, MyFrame::OnExit)
+    EVT_MENU(wxID_ABOUT, MyFrame::OnAbout)
+wxEND_EVENT_TABLE()
+;
+// clang-format on
+MyFrame::MyFrame()
     : wxFrame(NULL, wxID_ANY, wxT("NotepadSH"), wxDefaultPosition, wxSize(400, 400))
 {
     // MenuBar
