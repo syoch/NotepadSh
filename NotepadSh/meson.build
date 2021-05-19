@@ -1,15 +1,13 @@
 includes+=include_directories('./include')
 
 
-subdir('Frame')
-
 executable(
   'NotepadSh', [
     'main.cpp',
-    'MyApp.cpp'
+    'MyApp.cpp',
+    'MyFrame.cpp'
   ],
   dependencies:[
     dependency('wxwidgets', required : true),
-    Frame
   ]
 )

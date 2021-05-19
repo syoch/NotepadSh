@@ -116,7 +116,6 @@ void MyFrame::OnSaveFile(wxCommandEvent &)
 }
 void MyFrame::EnterTextEditor(wxCommandEvent &)
 {
-    //std::cout<<
     //command_processer.update();
 }
 void MyFrame::save()
