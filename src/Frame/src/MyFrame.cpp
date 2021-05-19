@@ -1,6 +1,5 @@
 #include "pch.h"
 #include "widgetids.h"
-#include "command.h"
 #include "MyFrame.h"
 
 wxBEGIN_EVENT_TABLE(MyFrame, wxFrame)
@@ -114,7 +113,7 @@ void MyFrame::OnSaveFile(wxCommandEvent &)
 }
 void MyFrame::EnterTextEditor(wxCommandEvent &)
 {
-    command_processer.update();
+    //command_processer.update();
 }
 void MyFrame::save()
 {
