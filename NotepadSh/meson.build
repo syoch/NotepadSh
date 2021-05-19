@@ -8,6 +8,7 @@ executable(
     'MyFrame.cpp'
   ],
   dependencies:[
-    dependency('wxwidgets', required : true),
-  ]
+    wx
+  ],
+  include_directories:includes
 )
