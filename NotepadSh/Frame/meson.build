@@ -1,7 +1,7 @@
 includes+=include_directories('.')
 
 Frame_lib=library(
-  'Frame', ['MyFrame.cpp','MyFrame.cpp'],
+  'Frame', ['MyFrame.cpp'],
   include_directories: includes,
   dependencies:[wx]
 )
