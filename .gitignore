@@ -2,7 +2,6 @@
 *.d
 notepadsh.exe
 *.gch
-notepadsh
 # IDE
 .vscode
 
