@@ -15,15 +15,9 @@ public:
 private:
   // constructing
   void setupBar();
-  struct
-  {
-    wxPanel *panel;
-    wxBoxSizer *sizer;
-    wxMenu *file;
-    wxMenu *help;
-    wxMenuBar *bar;
-    wxStatusBar *statusBar;
-  } panel;
+  wxPanel *panel;
+  wxBoxSizer *sizer;
+  wxStatusBar *statusBar;
   // Datas
   wxString path;
   wxString buffer;

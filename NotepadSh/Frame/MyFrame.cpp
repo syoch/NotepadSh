@@ -17,19 +17,19 @@ MyFrame::MyFrame()
 {
     setupBar();
     // StatusBar
-    panel.statusBar = new wxStatusBar(this);
-    SetStatusBar(panel.statusBar);
+    statusBar = new wxStatusBar(this);
+    SetStatusBar(statusBar);
     // panel
-    panel.panel = new wxPanel(this, wxID_ANY);
+    panel = new wxPanel(this, wxID_ANY);
     // - sizer
-    panel.sizer = new wxBoxSizer(wxVERTICAL);
+    sizer = new wxBoxSizer(wxVERTICAL);
     // - - add childs
     // - - - text editor
-    texteditor = new wxTextCtrl(panel.panel, ID_TextEditor, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER | wxTE_PROCESS_TAB | wxTE_MULTILINE);
+    texteditor = new wxTextCtrl(panel, ID_TextEditor, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER | wxTE_PROCESS_TAB | wxTE_MULTILINE);
     texteditor->SetFont(wxFont(12, wxFONTFAMILY_MODERN, wxFONTSTYLE_NORMAL, wxFONTWEIGHT_NORMAL, 0, wxT("")));
-    panel.sizer->Add(texteditor, 1, wxALL | wxEXPAND, 1);
+    sizer->Add(texteditor, 1, wxALL | wxEXPAND, 1);
     // - Set sizer
-    panel.panel->SetSizer(panel.sizer);
+    panel->SetSizer(sizer);
     Layout();
 }
 void MyFrame::setupBar()
@@ -87,7 +87,7 @@ void MyFrame::OnOpenFile(wxCommandEvent &)
     file.Open(path, wxFile::OpenMode::read);
     if (file.Error())
     {
-        panel.statusBar->SetStatusText("Failed");
+        statusBar->SetStatusText("Failed");
         wxMessageBox("Failed to open file[" + path + "]", "Error");
         return;
     }
@@ -112,10 +112,11 @@ void MyFrame::OnSaveFile(wxCommandEvent &)
     save();
     // Update Status
     texteditor->SetModified(false);
-    panel.statusBar->SetStatusText("Saved");
+    statusBar->SetStatusText("Saved");
 }
 void MyFrame::EnterTextEditor(wxCommandEvent &)
 {
+    //std::cout<<
     //command_processer.update();
 }
 void MyFrame::save()
